@@ -1,0 +1,23 @@
+{
+    "name": "g2o-book",
+    "private": "true",
+    "version": "on",
+    "description": "The g2o Book",
+    "main": "index.js",
+    "scripts": {
+        "build": "bundle install && npm run clean && bundle exec rake book:build",
+        "check": "bundle exec rake book:check",
+        "clean": "bundle exec rake book:clean",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/geometryzen/g2o-book.git"
+    },
+    "author": "David Geo Holmes",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/geometryzen/g20-book/issues"
+    },
+    "homepage": "https://github.com/geometryzen/g2o-book#readme"
+}
