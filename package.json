@@ -5,7 +5,8 @@
     "description": "The g2o Book",
     "main": "index.js",
     "scripts": {
-        "build": "bundle install && npm run clean && bundle exec rake book:build",
+        "build": "npm run clean && bundle exec rake book:build",
+        "build_html": "npm run clean && bundle exec rake book:build_html",
         "check": "bundle exec rake book:check",
         "clean": "bundle exec rake book:clean",
         "test": "echo \"Error: no test specified\" && exit 1"

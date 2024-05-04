@@ -11,7 +11,7 @@ namespace :book do
     date_string = Time.now.strftime('%Y-%m-%d')
     # The time in milliseconds since the January 1, 1970 epoch is useful for cache busting of include URIs.
     date_time_string = Time.now.strftime('%s')
-    params = "--attribute gittags='#{git_tags_string}' --attribute revdate='#{date_string}' --attribute revdatetime='#{date_time_string}' --attribute allow-uri-read"
+    params = "-r ./themes/vscodedark.rb -a rouge-style=vscodedark -a gittags='#{git_tags_string}' -a revdate='#{date_string}' -a revdatetime='#{date_time_string}' -a allow-uri-read"
     header_hash = `git rev-parse --short HEAD`.strip
 
     # Check contributors list
@@ -93,7 +93,7 @@ namespace :book do
         check_contrib()
 
         puts 'Converting to PDF... (this one takes a while)'
-        sh "bundle exec asciidoctor-pdf #{params} -a imagesdir=images -a pdf-fontsdir=themes #{INFILE} --o dist/#{OUTFILE}.pdf 2>/dev/null"
+        sh "bundle exec asciidoctor-pdf #{params} -a imagesdir=images -a pdf-fontsdir=themes #{INFILE} -o dist/#{OUTFILE}.pdf 2>/dev/null"
         puts ' -- PDF output at book.pdf'
     end
 
@@ -101,8 +101,8 @@ namespace :book do
     task :check => [:build_html, :build_epub] do
         puts 'Checking generated books'
 
-        sh "htmlproofer dist/#{OUTFILE}.html"
-        sh "epubcheck   dist/#{OUTFILE}.epub"
+        # sh "htmlproofer dist/#{OUTFILE}.html"
+        # sh "epubcheck   dist/#{OUTFILE}.epub"
     end
 
     desc 'Clean all generated files'

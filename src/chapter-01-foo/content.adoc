@@ -1,23 +1,21 @@
-// Start each chapter with its title.
-== First Chapter
+== Getting Started
 
-This is the first chapter.
-It includes some highlighted source code:
-
-[source,typescript,highlight=3-5,9]
+[source,json,linenos]
 ----
-import { initBoard } from 'g2o';
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/package.json?cache_bust='{revdatetime}'[]
+----
 
-const board = initBoard("my-board", {
-    boundingBox: { left: -5, top: 5, right: 5, bottom: -5 }
-});
+[source,html,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/index.html?cache_bust='{revdatetime}'[]
+----
 
-window.onunload = function() {
-    try {
-        board.dispose();
-    }
-    catch (e) {
-        console.warn(`${e}`);
-    }
-};
+[source,css,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/style.css?cache_bust='{revdatetime}'[]
+----
+
+[source,typescript,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/index.ts?cache_bust='{revdatetime}'[]
 ----

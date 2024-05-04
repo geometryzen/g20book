@@ -1,23 +1,24 @@
-<svg width="1119" height="1380"
-    xmlns="http://www.w3.org/2000/svg">
-
-    <g>
-        <title>Layer 1</title>
-        <g stroke="null" id="svg_1">
-            <rect stroke="null" id="svg_2" x="490.00412" y="356.00176" width="552.99996" height="270.99996" fill="#999"/>
-            <rect stroke="null" id="svg_3" x="490.00412" y="627.00172" width="552.99996" height="270.99996" fill="#ff9900"/>
-            <rect stroke="null" id="svg_4" x="766.5041" y="491.50174" width="138.24999" height="270.99996" fill="#fff"/>
-            <rect stroke="null" id="svg_5" x="628.25411" y="491.50174" width="138.24999" height="270.99996" fill="#555"/>
-            <text stroke="#999" transform="matrix(1.08008 0 0 1.05859 -83.8118 -22.1935)" id="svg_6" fill="#999" stroke-width="0" x="669.27268" y="613.26199" font-size="30" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve">STEM</text>
-            <text stroke="#fff" transform="matrix(1.08008 0 0 1.05859 -83.8118 -22.1935)" id="svg_7" fill="#fff" stroke-width="0" x="756.27268" y="613.26199" font-size="30" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve">C</text>
-            <text stroke="#ff9900" transform="matrix(1.08008 0 0 1.05859 -83.8118 -22.1935)" id="svg_8" fill="#ff9900" stroke-width="0" x="791.27268" y="613.26199" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve">studio</text>
-            <text stroke="#555" transform="matrix(1.08008 0 0 1.05859 -83.8118 -22.1935)" id="svg_9" fill="#555" stroke-width="0" x="857.27268" y="613.26199" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve">.com</text>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600" preserveAspectRatio="xMidYMid meet">
+    <defs>
+    </defs>
+    <g id="my-board-viewbox" transform="matrix(0 -60.4 60.4 0 302 302)">
+        <g id="my-board-scene" transform="matrix(1 0 0 1 0 0)">
+            <path class="" id="A" fill-opacity="0.0" transform="matrix(1 0 0 1 -2 -4)" visibility="hidden" d="M 0 0.066225 C 0.036575 0.066225 0.066225 0.036575 0.066225 0 C 0.066225 -0.036576 0.036575 -0.066226 0 -0.066226 C -0.036576 -0.066226 -0.066226 -0.036576 -0.066226 -0.000001 C -0.066226 0.036575 -0.036576 0.066225 0 0.066225 Z "></path>
+            <path class="" id="B" transform="matrix(1 0 0 1 -2 4)" visibility="hidden" d="M 0 0.066225 C 0.036575 0.066225 0.066225 0.036575 0.066225 0 C 0.066225 -0.036576 0.036575 -0.066226 0 -0.066226 C -0.036576 -0.066226 -0.066226 -0.036576 -0.066226 -0.000001 C -0.066226 0.036575 -0.036576 0.066225 0 0.066225 Z "></path>
+            <path class="" id="C" transform="matrix(1 0 0 1 2 4)" visibility="hidden" d="M 0 0.066225 C 0.036575 0.066225 0.066225 0.036575 0.066225 0 C 0.066225 -0.036576 0.036575 -0.066226 0 -0.066226 C -0.036576 -0.066226 -0.066226 -0.036576 -0.066226 -0.000001 C -0.066226 0.036575 -0.036576 0.066225 0 0.066225 Z "></path>
+            <path class="" id="ramp" transform="matrix(1 0 0 1 0 0)" d="M -2 -4 L -2 4 L 2 4 Z " fill="rgba(0, 191, 168, 0.5)" stroke="rgb(0, 191, 168)" stroke-width="0.06"></path>
+            <path class="" id="box" fill="#FFFF00" fill-opacity="0.3" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="0.06" transform="matrix(0.894427 -0.447214 0.447213 0.894427 1.447213 1.776393)" d="M -0.5 -1 L -0.5 1 L 0.5 1 L 0.5 -1 Z "></path>
+            <text class="" id="text-A" fill="#000" stroke="#000" opacity="0.4" transform="matrix(0 0.016556 -0.016557 0 -2 -4)" text-anchor="end" text-decoration="none" dominant-baseline="middle" dx="-5" font-family="Lato" font-size="20">A</text>
+            <text class="" id="text-B" fill="#000" stroke="#000" opacity="0.4" transform="matrix(0 0.016556 -0.016557 0 -2 4)" text-decoration="none" dominant-baseline="middle" dx="5" font-family="Lato" font-size="20">B</text>
+            <text class="" id="text-C" fill="#000" stroke="#000" opacity="0.4" transform="matrix(0 0.016556 -0.016557 0 2 4)" text-decoration="none" dominant-baseline="middle" dx="5" font-family="Lato" font-size="20">C</text>
+            <text class="" id="text-Box" fill="#000" stroke="#000" transform="matrix(0.007404 0.014808 -0.014809 0.007404 1.447213 1.776393)" text-anchor="middle" text-decoration="none" dominant-baseline="middle" font-family="Lato" font-size="20">Box</text>
+            <text class="" id="text-Ramp" fill="#000" stroke="#000" transform="matrix(0.007404 0.014808 -0.014809 0.007404 0 0)" text-anchor="middle" text-decoration="none" dominant-baseline="hanging" font-family="Lato" font-size="20">Ramp</text>
+            <path class="" id="Fg" fill="none" stroke-width="2" vector-effect="non-scaling-stroke" transform="matrix(1 0 0 1 1.447213 1.776393)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L -2 0 L -2 0 L -1.761145 0.07381 L -2 0 L -1.761145 -0.073811 " stroke-opacity="0.4"></path>
+            <path class="" id="Fn" fill="none" stroke-opacity="0.4" transform="matrix(1 0 0 1 1.447213 1.776393)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 1.34164 -0.670821 L 1.34164 -0.670821 L 1.094992 -0.630019 L 1.34164 -0.670821 L 1.16101 -0.497983 " stroke-width="2"></path>
+            <text class="" id="text-Fn" fill="#000" stroke="#000" transform="matrix(0.007404 0.014808 -0.014809 0.007404 2.878297 1.060851)" text-anchor="middle" text-decoration="none" font-family="Lato" font-size="20">Fn</text>
+            <path class="" id="Fs" fill="none" transform="matrix(1 0 0 1 1.447213 1.776393)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 0.67082 1.34164 L 0.67082 1.34164 L 0.630018 1.094992 L 0.67082 1.34164 L 0.497982 1.16101 " stroke-opacity="0.4" stroke-width="2"></path>
+            <path class="" id="arrow" fill="none" stroke-width="4" vector-effect="non-scaling-stroke" transform="matrix(1 0 0 1 0 0)" stroke-linecap="round" stroke-linejoin="round" d="M -0.5 0 L 0.5 0 L 0.5 0 L 0.261144 -0.073811 L 0.5 0 L 0.261144 0.07381 "></path>
         </g>
-        <text xml:space="preserve" text-anchor="start" font-family="'JetBrains Mono'" font-size="24" id="svg_10" y="80" x="879.5" stroke-width="0" stroke="#000" fill="#000000"></text>
-        <text xml:space="preserve" text-anchor="start" font-family="'JetBrains Mono'" font-size="60" id="svg_11" y="650.00001" x="80" stroke-width="0" stroke="#000" fill="#000000">STEMCbook</text>
-        <text style="cursor: move;" xml:space="preserve" text-anchor="start" font-family="'JetBrains Mono'" font-size="24" id="svg_12" y="959.99961" x="300" stroke-width="0" stroke="#000" fill="#000000">How to create Interactive Learning Experiences using STEMCstudio and LTI Advantage</text>
-        <text xml:space="preserve" text-anchor="start" font-family="'JetBrains Mono'" font-size="24" id="svg_14" y="80" x="47.49414" stroke-width="0" stroke="#000" fill="#000000">Expressing Ideas through Computational Modelling™</text>
-        <text xml:space="preserve" text-anchor="start" font-family="'JetBrains Mono'" font-size="24" id="svg_15" y="1160" x="80" stroke-width="0" stroke="#000" fill="#000000">David Geo Holmes</text>
-        <text xml:space="preserve" text-anchor="start" font-family="'JetBrains Mono'" font-size="24" id="svg_16" y="1160" x="800" stroke-width="0" stroke="#000" fill="#000000">GeometryZen Press</text>
     </g>
 </svg>

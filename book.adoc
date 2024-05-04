@@ -1,17 +1,19 @@
-= The Book: A template for a new project
+= Book Title: Geometric Algebra, SVG, Education
+:doctype: book
 :author: David Geo Holmes
 :email: david.geo.holmes@gmail.com
 :revnumber: v0.1
 :description: This is the description of your book
 //
 // Set the cover image
-:front-cover-image: image:cover.svg[fit=cover]
+:front-cover-image: image:cover.svg[]
+//
+// Use 
+:icons: font
 //
 // Don't display a title page, since we have a cover image.
 :notitle:
 //
-// Render as a book; each chapter will get its own section.
-:doctype: book
 //
 // Prefix nmbered chapter titles with "Chapter"
 :chapter-label: Chapter
@@ -29,8 +31,8 @@
 :hide-uri-scheme:
 //
 // Use rouge for source highlighting, and set the style.
-// :source-highlighter: rouge
-// :rouge-style: github
+:source-highlighter: rouge
+:rouge-style: vscodedark
 :tabsize: 4
 
 // -- Book content includes --
@@ -43,19 +45,13 @@ include::src/preface.adoc[]
 
 include::src/contributors.adoc[]
 
-== Introduction
-
 include::src/introduction.adoc[]
 
 // Enable chapter numbering.
 :sectnums:
 
-== First Part
-
 // Include the numbered chapters.
 include::src/chapter-01-foo/content.adoc[]
-
-== Second Part
 
 // Include the numbered chapters.
 include::src/chapter-02-bar/content.adoc[]

@@ -1,23 +1,2 @@
-// Start each chapter with its title.
-== First Chapter
+== Second Chapter
 
-This is the first chapter.
-It includes some highlighted source code:
-
-[source,typescript,highlight=3-5,9]
-----
-import { initBoard } from 'g2o';
-
-const board = initBoard("my-board", {
-    boundingBox: { left: -5, top: 5, right: 5, bottom: -5 }
-});
-
-window.onunload = function() {
-    try {
-        board.dispose();
-    }
-    catch (e) {
-        console.warn(`${e}`);
-    }
-};
-----
