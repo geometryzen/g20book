@@ -1,6 +1,6 @@
 = Book Title: Geometric Algebra, SVG, Education
 David Geo Holmes <david.geo.holmes@gmail.com>
-v2.173.2, {docdate}: Draft
+v1.0.0, {docdate}: Draft
 :author: David Geo Holmes
 :email: david.geo.holmes@gmail.com
 :revnumber: v0.1
@@ -68,7 +68,11 @@ include::src/chapter-07-skew/content.adoc[]
 
 include::src/chapter-08-vector-effect/content.adoc[]
 
-include::src/chapter-09-core-elements/content.adoc[]
+include::src/chapter-09-gradient/content.adoc[]
+
+include::src/chapter-15-core-elements/content.adoc[]
+
+include::src/chapter-16-transform-3d/content.adoc[]
 
 [colophon]
 include::src/colophon.adoc[]

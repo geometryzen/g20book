@@ -1,0 +1,24 @@
+== Transform3D
+
+[source,typescript,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/278fd1666527a2e7415d0db724518cb7/raw/index.ts?cache_bust='{revdatetime}'[]
+----
+
+[source,typescript,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/278fd1666527a2e7415d0db724518cb7/raw/Transform3D.ts?cache_bust='{revdatetime}'[]
+----
+
+[#g2o-book-transform-3d]
+.Transform 3D
+image:transform-3d.svg[width=600, height=600]
+
+You can view the application at the following URL:
+
+https://www.stemcviewer.com/gists/278fd1666527a2e7415d0db724518cb7
+
+The code for this example can be found at the following URL:
+
+https://www.stemcstudio.com/gists/278fd1666527a2e7415d0db724518cb7
+
