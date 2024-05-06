@@ -43,18 +43,30 @@ include::src/about.adoc[]
 
 include::src/preface.adoc[]
 
-include::src/contributors.adoc[]
+// include::src/contributors.adoc[]
 
 include::src/introduction.adoc[]
 
 // Enable chapter numbering.
 :sectnums:
 
-// Include the numbered chapters.
-include::src/chapter-01-foo/content.adoc[]
+include::src/chapter-01-getting-started/content.adoc[]
 
-// Include the numbered chapters.
-include::src/chapter-02-bar/content.adoc[]
+include::src/chapter-02-color-options/content.adoc[]
+
+include::src/chapter-03-bounding-box/content.adoc[]
+
+include::src/chapter-04-position/content.adoc[]
+
+include::src/chapter-05-attitude/content.adoc[]
+
+include::src/chapter-06-scale/content.adoc[]
+
+include::src/chapter-07-skew/content.adoc[]
+
+include::src/chapter-08-vector-effect/content.adoc[]
+
+include::src/chapter-09-core-elements/content.adoc[]
 
 [colophon]
 include::src/colophon.adoc[]

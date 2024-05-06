@@ -1,0 +1,33 @@
+== Getting Started
+
+[source,json,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/package.json?cache_bust='{revdatetime}'[]
+----
+
+[source,html,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/index.html?cache_bust='{revdatetime}'[]
+----
+
+[source,css,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/style.css?cache_bust='{revdatetime}'[]
+----
+
+[source,typescript,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/index.ts?cache_bust='{revdatetime}'[]
+----
+
+[#g2o-book-getting-started]
+.Getting Started
+image:getting-started.svg[width=500, height=500]
+
+You can view the application at the following URL:
+
+https://www.stemcviewer.com/gists/6670c7efb04edc14c69cde9b9e95a75b
+
+The code for this example can be found at the following URL:
+
+https://www.stemcstudio.com/gists/6670c7efb04edc14c69cde9b9e95a75b
