@@ -28,6 +28,6 @@ You can view the application at the following URL:
 
 https://www.stemcviewer.com/gists/6670c7efb04edc14c69cde9b9e95a75b
 
-The code for this example can be found at the following URL:
+The live code editor for this example can be found at the following URL:
 
 https://www.stemcstudio.com/gists/6670c7efb04edc14c69cde9b9e95a75b

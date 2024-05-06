@@ -13,7 +13,7 @@ You can view the application at the following URL:
 
 https://www.stemcviewer.com/gists/f776fe33f27225aea82bca952916fc22
 
-The code for this example can be found at the following URL:
+The live code editor for this example can be found at the following URL:
 
 https://www.stemcstudio.com/gists/f776fe33f27225aea82bca952916fc22
 
