@@ -22,7 +22,7 @@ fi
 
 npm pkg set version="$VERSION"
 # Update the version string on line 3 of book.asc
-sed -i '3s/.*/v'$VERSION', {docdate}: Draft/' book.asc
+sed -i '3s/.*/v'$VERSION', {docdate}: Draft/' ./book.asc
 
 npm install
 npm update

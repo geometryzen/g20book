@@ -1,9 +1,11 @@
 = Book Title: Geometric Algebra, SVG, Education
-:doctype: book
+David Geo Holmes <david.geo.holmes@gmail.com>
+v2.173.2, {docdate}: Draft
 :author: David Geo Holmes
 :email: david.geo.holmes@gmail.com
 :revnumber: v0.1
 :description: This is the description of your book
+:doctype: book
 //
 // Set the cover image
 :front-cover-image: image:cover.svg[]
