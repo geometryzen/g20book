@@ -1,3 +1,2 @@
-Contributors as of 5f60971:
+Contributors as of acf989b:
 
-David Geo Holmes

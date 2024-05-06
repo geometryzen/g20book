@@ -1,7 +1,7 @@
 {
     "name": "g2o-book",
     "private": "true",
-    "version": "2.173.2",
+    "version": "1.0.0",
     "description": "The g2o Book",
     "main": "index.js",
     "scripts": {

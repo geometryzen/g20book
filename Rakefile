@@ -58,7 +58,7 @@ namespace :book do
     file "#{SRC}/contributors.txt" do
         puts 'Generating contributors list'
         sh "echo 'Contributors as of #{header_hash}:\n' > #{SRC}/contributors.txt"
-        sh "git shortlog -s | grep -v -E '(Bloggs|dependabot)' | cut -f 2- | column -c 120 >> #{SRC}/contributors.txt"
+        sh "git shortlog -s | grep -v -E '(Holmes|dependabot)' | cut -f 2- | column -c 120 >> #{SRC}/contributors.txt"
     end
 
     desc 'build Epub format'
