@@ -1,4 +1,4 @@
-= Book Title: Geometric Algebra, SVG, Education
+= g2o: Scalable Vector Graphics
 David Geo Holmes <david.geo.holmes@gmail.com>
 v1.0.0, {docdate}: Draft
 :author: David Geo Holmes
@@ -34,18 +34,21 @@ v1.0.0, {docdate}: Draft
 //
 // Use rouge for source highlighting, and set the style.
 :source-highlighter: rouge
-:rouge-style: vscodedark
+// :rouge-style: vscodedark
+// :rouge-style: bw
 :tabsize: 4
 
 // -- Book content includes --
 
 // Include the non-numbered sections (preface, introduction, etc).
 [preface]
-include::src/about.adoc[]
+// include::src/about.adoc[]
 
 include::src/preface.adoc[]
 
 // include::src/contributors.adoc[]
+
+include::src/acknowledgments.adoc[]
 
 include::src/introduction.adoc[]
 
@@ -62,25 +65,39 @@ include::src/chapter-04-position/content.adoc[]
 
 include::src/chapter-05-attitude/content.adoc[]
 
-include::src/chapter-06-scale/content.adoc[]
+include::src/chapter-10-core-graphics-shapes/content.adoc[]
 
-include::src/chapter-07-skew/content.adoc[]
+include::src/chapter-06-G20/content.adoc[]
+
+include::src/chapter-06-geometric-algebra/content.adoc[]
+
+include::src/chapter-06-scale/content.adoc[]
 
 include::src/chapter-08-vector-effect/content.adoc[]
 
+include::src/chapter-07-skew/content.adoc[]
+
 include::src/chapter-09-gradient/content.adoc[]
 
-include::src/chapter-15-core-elements/content.adoc[]
+include::src/chapter-11-more-graphics-shapes/content.adoc[]
+
+include::src/chapter-12-axes-and-grid/content.adoc[]
 
 include::src/chapter-16-transform-3d/content.adoc[]
 
-[colophon]
-include::src/colophon.adoc[]
+include::src/chapter-17-creating-png-images/content.adoc[]
 
-include::src/bibliography.adoc[]
+include::src/chapter-18-server-side-rendering/content.adoc[]
 
-[appendix]
-include::src/appendix.adoc[]
+include::src/chapter-19-extending/content.adoc[]
+
+// [colophon]
+// include::src/colophon.adoc[]
+
+// include::src/bibliography.adoc[]
+
+// [appendix]
+// include::src/appendix.adoc[]
 
 ifdef::backend-docbook[]
 [index]

@@ -1,4 +1,4 @@
-== Core Elements
+== Core Graphics Shapes
 
 [#g2o-book-core-elements]
 .Core Elements

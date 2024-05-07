@@ -1,6 +1,6 @@
-[[appendix-foo]]
+[[appendix-multivectors]]
 [appendix]
-== Foo
+== Multivectors
 
 
 

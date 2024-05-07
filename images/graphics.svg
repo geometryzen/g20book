@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" preserveAspectRatio="xMidYMid meet">
+    <defs>
+    </defs>
+    <g id="my-board-viewbox" transform="matrix(0 -250 250 0 250 250)">
+        <g id="my-board-scene" transform="matrix(1 0 0 1 0 0)">
+            <path id="rectangle" fill="#FFFF00" fill-opacity="0.3" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="0.016" transform="matrix(1 0 0 1 0.4 -0.4)" d="M -0.141422 -0.141422 L -0.141422 0.141421 L -0.141422 0.141421 L 0.141421 0.141421 L 0.141421 0.141421 L 0.141421 -0.141422 L 0.141421 -0.141422 L -0.141422 -0.141422 L -0.141422 -0.141422 L -0.141422 -0.141422 Z "></path>
+            <path id="polygon" fill="#FFFF00" fill-opacity="0.3" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="0.016" transform="matrix(1 0 0 1 0.4 0.4)" d="M 0 0.2 L 0.173205 0.1 L 0.173205 -0.1 L 0 -0.2 L -0.173206 -0.100001 L -0.173206 0.1 L -0.000001 0.2 Z "></path>
+            <path id="star" fill="#FFFF00" fill-opacity="0.3" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="0.016" transform="matrix(1 0 0 1 -0.4 -0.4)" d="M 0.2 0 L 0.086602 -0.05 L 0.1 -0.173206 L 0 -0.1 L -0.1 -0.173206 L -0.086603 -0.05 L -0.2 -0.000001 L -0.086603 0.049999 L -0.100001 0.173205 L -0.000001 0.1 L 0.1 0.173205 L 0.086602 0.05 L 0.2 0 Z "></path>
+        </g>
+    </g>
+</svg>

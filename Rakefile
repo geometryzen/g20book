@@ -11,7 +11,9 @@ namespace :book do
     date_string = Time.now.strftime('%Y-%m-%d')
     # The time in milliseconds since the January 1, 1970 epoch is useful for cache busting of include URIs.
     date_time_string = Time.now.strftime('%s')
-    params = "-r ./themes/vscodedark.rb -a rouge-style=vscodedark -a gittags='#{git_tags_string}' -a revdate='#{date_string}' -a revdatetime='#{date_time_string}' -a allow-uri-read"
+    # rouge_style='bw'
+    rouge_style='vscodedark'
+    params = "-r ./themes/vscodedark.rb -a rouge-style='#{rouge_style}' -a gittags='#{git_tags_string}' -a revdate='#{date_string}' -a revdatetime='#{date_time_string}' -a allow-uri-read"
     header_hash = `git rev-parse --short HEAD`.strip
 
     # Check contributors list

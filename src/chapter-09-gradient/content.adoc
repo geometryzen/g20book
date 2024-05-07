@@ -1,4 +1,4 @@
-== Gradient
+== Gradient Effects
 
 [source,json,linenos]
 ----

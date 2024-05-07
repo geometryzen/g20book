@@ -1,4 +1,4 @@
-== Color Options
+== Fill and Stroke Color
 
 [source,typescript,linenos]
 ----

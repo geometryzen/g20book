@@ -1,4 +1,4 @@
-== Bounding Box
+== Coordinate Systems
 
 [source,typescript,linenos]
 ----

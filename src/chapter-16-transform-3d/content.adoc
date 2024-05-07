@@ -1,4 +1,4 @@
-== Transform3D
+== Rendering 3D Perspective
 
 [source,typescript,linenos]
 ----

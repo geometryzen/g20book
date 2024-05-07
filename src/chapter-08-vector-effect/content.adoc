@@ -1,4 +1,4 @@
-== Vector Effect
+== Using Vector Effect
 
 [source,typescript,linenos]
 ----
