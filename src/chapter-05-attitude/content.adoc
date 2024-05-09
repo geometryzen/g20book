@@ -1,4 +1,4 @@
-== Attitude
+== Attitude and Axes
 
 [source,typescript,linenos]
 ----
