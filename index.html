@@ -694,10 +694,13 @@ pre.rouge .p, pre.rouge .pi {
 <p>If you are including g20 in a web application that uses module loading, then you should use the @g20/core, @g20/reactive, and @g20/svg packages. Behind the scenes, the web application development environment is using EcmaScript Modules (ESM).</p>
 </div>
 <div class="paragraph">
-<p>If you are using STEMCstudio, the use of g20 feels very mush like you are using ESM, but in actuality the modules being used are in System format.</p>
+<p>If you are using STEMCstudio, then the developer experience using g20 feels very mush like you are using ESM, but in actuality the modules being used are in System format.</p>
 </div>
 <div class="sect2">
 <h3 id="_universal_module_definition_umd">1.1. Universal Module Definition (UMD)</h3>
+<div class="paragraph">
+<p>The @g20/browser package contains most of the g20 packages bundled into a single file with the UMD format. This file may be loaded as a external script in an HTML file. Once loaded, functions, classes, and constants from the module will be available in the <code>G20</code> namespace.</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="html"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
@@ -782,6 +785,12 @@ pre.rouge .p, pre.rouge .pi {
 <span class="nt">&lt;/html&gt;</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>You can explore this application in JSFiddle.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://jsfiddle.net/f4qka3po/" class="bare">jsfiddle.net/f4qka3po/</a></p>
 </div>
 </div>
 <div class="sect2">
