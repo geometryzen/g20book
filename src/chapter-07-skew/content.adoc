@@ -1,0 +1,19 @@
+== Skewing
+
+[source,typescript,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/e8ba773a1c780601e74b08b4ac5096ea/raw/index.ts?cache_bust='{revdatetime}'[]
+----
+
+[#g20-book-skew]
+.Scale
+image:skew.svg[width=500, height=500]
+
+You can view the application at the following URL:
+
+https://www.stemcviewer.com/gists/e8ba773a1c780601e74b08b4ac5096ea
+
+The live code editor for this example can be found at the following URL:
+
+https://www.stemcstudio.com/gists/e8ba773a1c780601e74b08b4ac5096ea
+

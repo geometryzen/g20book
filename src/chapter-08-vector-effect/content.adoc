@@ -1,0 +1,19 @@
+== Using Vector Effect
+
+[source,typescript,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/f776fe33f27225aea82bca952916fc22/raw/index.ts?cache_bust='{revdatetime}'[]
+----
+
+[#g20-book-vector-effect]
+.Vector Effect
+image:vector-effect.png[width=500, height=500]
+
+You can view the application at the following URL:
+
+https://www.stemcviewer.com/gists/f776fe33f27225aea82bca952916fc22
+
+The live code editor for this example can be found at the following URL:
+
+https://www.stemcstudio.com/gists/f776fe33f27225aea82bca952916fc22
+

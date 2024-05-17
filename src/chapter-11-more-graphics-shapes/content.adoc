@@ -1,0 +1,24 @@
+== More Graphics Shapes
+
+[source,json,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/8f873d1ef37536795b40883aa2e77c01/raw/package.json?cache_bust='{revdatetime}'[]
+----
+
+[source,typescript,linenos]
+----
+include::https://gist.githubusercontent.com/stemcstudio/8f873d1ef37536795b40883aa2e77c01/raw/index.ts?cache_bust='{revdatetime}'[]
+----
+
+[#g20-book-graphics]
+.Graphics
+image:graphics.svg[width=500, height=500]
+
+You can view the application at the following URL:
+
+https://www.stemcviewer.com/gists/8f873d1ef37536795b40883aa2e77c01
+
+The live code editor for this example can be found at the following URL:
+
+https://www.stemcstudio.com/gists/8f873d1ef37536795b40883aa2e77c01
+

@@ -1,0 +1,24 @@
+{
+    "name": "g20book",
+    "private": "true",
+    "version": "1.0.0",
+    "description": "The @g20 Book",
+    "main": "index.js",
+    "scripts": {
+        "build": "npm run clean && bundle exec rake book:build",
+        "build_html": "npm run clean && bundle exec rake book:build_html",
+        "check": "bundle exec rake book:check",
+        "clean": "bundle exec rake book:clean",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/geometryzen/g20book.git"
+    },
+    "author": "David Geo Holmes",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/geometryzen/g20book/issues"
+    },
+    "homepage": "https://github.com/geometryzen/g20book#readme"
+}

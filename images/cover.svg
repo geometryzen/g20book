@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600" preserveAspectRatio="xMidYMid meet">
+    <defs>
+    </defs>
+    <g id="my-board-viewbox" transform="matrix(0 -250 250 0 250 250)">
+        <g id="my-board-scene" transform="matrix(1 0 0 1 0 0)">
+            <g opacity="0.3">
+                <path fill="none" stroke="black" stroke-width="0.008" transform="matrix(1 0 0 1 0 -0.9)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 0 1.8 L 0 1.8 L 0.014762 1.752228 L 0 1.8 L -0.014763 1.752228 "></path>
+                <path fill="none" stroke="black" stroke-width="0.008" transform="matrix(1 0 0 1 -0.9 0)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 1.8 0 L 1.8 0 L 1.752228 -0.014763 L 1.8 0 L 1.752228 0.014762 "></path>
+                <text class="" fill="gray" stroke="gray" stroke-width="0.012" transform="matrix(0 0.003999 -0.004 0 0 0.9)" text-decoration="none" dominant-baseline="middle" dx="9.6" font-family="sans-serif" font-size="18" id="undefined">x</text>
+                <text class="" fill="gray" stroke="gray" stroke-width="0.012" transform="matrix(0 0.003999 -0.004 0 0.9 0)" text-anchor="middle" text-decoration="none" dominant-baseline="middle" dy="-16" font-family="sans-serif" font-size="18" id="undefined">y</text>
+            </g>
+            <g opacity="0.3" transform="matrix(0.894427 -0.447214 0.447213 0.894427 0 0)">
+                <path fill="none" stroke="black" stroke-width="0.008" transform="matrix(1 0 0 1 0 -0.9)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 0 1.8 L 0 1.8 L 0.014762 1.752228 L 0 1.8 L -0.014763 1.752228 "></path>
+                <path fill="none" stroke="black" stroke-width="0.008" transform="matrix(1 0 0 1 -0.9 0)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 1.8 0 L 1.8 0 L 1.752228 -0.014763 L 1.8 0 L 1.752228 0.014762 "></path>
+                <text class="" fill="gray" stroke="gray" stroke-width="0.012" transform="matrix(0 0.003999 -0.004 0 0 0.9)" text-decoration="none" dominant-baseline="middle" dx="9.6" font-family="sans-serif" font-size="18" id="undefined">s</text>
+                <text class="" fill="gray" stroke="gray" stroke-width="0.012" transform="matrix(0 0.003999 -0.004 0 0.9 0)" text-anchor="middle" text-decoration="none" dominant-baseline="middle" dy="-16" font-family="sans-serif" font-size="18" id="undefined">n</text>
+            </g>
+            <path id="A" fill="gray" fill-opacity="0" stroke="gray" stroke-opacity="0" stroke-width="0.012" d="M 0 0.016 C 0.008836 0.016 0.016 0.008836 0.016 0 C 0.016 -0.008837 0.008836 -0.016 0 -0.016 C -0.008837 -0.016 -0.016 -0.008837 -0.016 -0.000001 C -0.016001 0.008836 -0.008837 0.016 0 0.016 Z " transform="matrix(1 0 0 1 -0.4 -0.8)"></path>
+            <path id="B" fill="gray" fill-opacity="0" stroke="gray" stroke-opacity="0" stroke-width="0.012" transform="matrix(1 0 0 1 -0.4 0.8)" d="M 0 0.016 C 0.008836 0.016 0.016 0.008836 0.016 0 C 0.016 -0.008837 0.008836 -0.016 0 -0.016 C -0.008837 -0.016 -0.016 -0.008837 -0.016 -0.000001 C -0.016001 0.008836 -0.008837 0.016 0 0.016 Z "></path>
+            <path id="C" fill="gray" fill-opacity="0" stroke="gray" stroke-opacity="0" stroke-width="0.012" transform="matrix(1 0 0 1 0.4 0.8)" d="M 0 0.016 C 0.008836 0.016 0.016 0.008836 0.016 0 C 0.016 -0.008837 0.008836 -0.016 0 -0.016 C -0.008837 -0.016 -0.016 -0.008837 -0.016 -0.000001 C -0.016001 0.008836 -0.008837 0.016 0 0.016 Z "></path>
+            <path id="ramp" fill="rgb(0, 191, 168)" fill-opacity="0.3" stroke="rgb(0, 191, 168)" stroke-width="0.016" d="M -0.4 -0.8 L -0.4 0.8 L 0.4 0.8 Z "></path>
+            <path id="box" fill="#FFFF00" fill-opacity="0.3" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="0.016" d="M -0.1 -0.2 L -0.1 0.2 L 0.1 0.2 L 0.1 -0.2 Z " transform="matrix(0.894427 -0.447214 0.447213 0.894427 0.289442 0.355278)"></path>
+            <text class="" id="text-A" fill="gray" stroke="gray" stroke-width="0.012" opacity="0.4" transform="matrix(0 0.003999 -0.004 0 -0.4 -0.8)" text-anchor="end" text-decoration="none" dominant-baseline="middle" dx="-5" font-family="Lato" font-size="20">A</text>
+            <text class="" id="text-B" fill="gray" stroke="gray" stroke-width="0.012" opacity="0.4" transform="matrix(0 0.003999 -0.004 0 -0.4 0.8)" text-decoration="none" dominant-baseline="middle" dx="5" font-family="Lato" font-size="20">B</text>
+            <text class="" id="text-C" fill="gray" stroke="gray" stroke-width="0.012" opacity="0.4" transform="matrix(0 0.003999 -0.004 0 0.4 0.8)" text-decoration="none" dominant-baseline="middle" dx="5" dy="10" font-family="Lato" font-size="20">C</text>
+            <text class="" id="text-D" fill="gray" stroke="gray" stroke-width="0.012" opacity="0.7" transform="matrix(0.001788 0.003577 -0.003578 0.001788 0.289442 0.355278)" text-anchor="middle" text-decoration="none" dominant-baseline="middle" font-family="Lato" font-size="20">Block</text>
+            <text class="" id="text-E" fill="gray" stroke="gray" stroke-width="0.012" opacity="0.7" transform="matrix(0.001788 0.003577 -0.003578 0.001788 0 0)" text-anchor="middle" text-decoration="none" dominant-baseline="hanging" font-family="Lato" font-size="20">Ramp</text>
+            <path fill="none" stroke="black" stroke-width="0.012" transform="matrix(1 0 0 1 0.289442 0.355278)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L -0.4 0 L -0.4 0 L -0.352229 0.014762 L -0.4 0 L -0.352229 -0.014763 " stroke-opacity="0.4"></path>
+            <path fill="none" stroke="black" stroke-width="0.012" transform="matrix(1 0 0 1 0.289442 0.355278)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 0.268328 -0.134165 L 0.268328 -0.134165 L 0.218998 -0.126004 L 0.268328 -0.134165 L 0.232202 -0.099597 " stroke-opacity="0.4"></path>
+            <path fill="none" stroke="black" stroke-width="0.012" transform="matrix(1 0 0 1 0.289442 0.355278)" stroke-linecap="round" stroke-linejoin="round" d="M 0 0 L 0.107331 0.214662 L 0.107331 0.214662 L 0.09917 0.165332 L 0.107331 0.214662 L 0.072763 0.178536 " stroke-opacity="0.4"></path>
+        </g>
+    </g>
+</svg>
