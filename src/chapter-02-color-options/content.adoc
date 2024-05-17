@@ -6,7 +6,7 @@ include::https://gist.githubusercontent.com/stemcstudio/351f38f0cdab3eb0576e4f1e
 ----
 
 [#g20-book-color-options]
-.Color Optoins
+.Color Options
 image:color-options.svg[width=500, height=500]
 
 You can view the application at the following URL:

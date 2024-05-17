@@ -1,5 +1,5 @@
 {
-    "name": "@g20/book",
+    "name": "g20book",
     "private": "true",
     "version": "1.0.0",
     "description": "The @g20 Book",
@@ -13,12 +13,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/geometryzen/g2o-book.git"
+        "url": "git+https://github.com/geometryzen/g20book.git"
     },
     "author": "David Geo Holmes",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/geometryzen/g20-book/issues"
+        "url": "https://github.com/geometryzen/g20book/issues"
     },
-    "homepage": "https://github.com/geometryzen/g2o-book#readme"
+    "homepage": "https://github.com/geometryzen/g20book#readme"
 }
