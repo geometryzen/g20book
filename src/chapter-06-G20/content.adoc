@@ -5,7 +5,7 @@
 include::https://gist.githubusercontent.com/stemcstudio/ed9cf7b2822a108266bbcd9ab0ccf81b/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-G20]
+[#g20-book-G20]
 .G20
 image:scale.svg[width=500, height=500]
 

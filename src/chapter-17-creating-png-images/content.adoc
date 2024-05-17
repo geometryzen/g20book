@@ -10,7 +10,7 @@ include::https://gist.githubusercontent.com/stemcstudio/156c2b1d8ef856f7382f8671
 include::https://gist.githubusercontent.com/stemcstudio/156c2b1d8ef856f7382f86719e6cdb02/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-canvas]
+[#g20-book-canvas]
 .HTMLCanvasElement
 image:canvas.png[width=500, height=500]
 

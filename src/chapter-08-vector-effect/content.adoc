@@ -5,7 +5,7 @@
 include::https://gist.githubusercontent.com/stemcstudio/f776fe33f27225aea82bca952916fc22/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-vector-effect]
+[#g20-book-vector-effect]
 .Vector Effect
 image:vector-effect.png[width=500, height=500]
 

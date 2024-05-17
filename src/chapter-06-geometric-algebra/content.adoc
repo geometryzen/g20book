@@ -5,7 +5,7 @@
 include::https://gist.githubusercontent.com/stemcstudio/ed9cf7b2822a108266bbcd9ab0ccf81b/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-geometric-algebra]
+[#g20-book-geometric-algebra]
 .Geometric Algebra
 image:scale.svg[width=500, height=500]
 

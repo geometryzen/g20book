@@ -5,7 +5,7 @@
 include::https://gist.githubusercontent.com/stemcstudio/351f38f0cdab3eb0576e4f1e1e3c0588/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-color-options]
+[#g20-book-color-options]
 .Color Optoins
 image:color-options.svg[width=500, height=500]
 

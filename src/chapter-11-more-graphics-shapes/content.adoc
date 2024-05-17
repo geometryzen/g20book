@@ -10,7 +10,7 @@ include::https://gist.githubusercontent.com/stemcstudio/8f873d1ef37536795b40883a
 include::https://gist.githubusercontent.com/stemcstudio/8f873d1ef37536795b40883aa2e77c01/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-graphics]
+[#g20-book-graphics]
 .Graphics
 image:graphics.svg[width=500, height=500]
 

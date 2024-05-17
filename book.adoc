@@ -1,4 +1,4 @@
-= g2o: Scalable Vector Graphics
+= @g20: Scalable Vector Graphics
 David Geo Holmes <david.geo.holmes@gmail.com>
 v1.0.0, {docdate}: Draft
 :author: David Geo Holmes

@@ -5,7 +5,7 @@
 include::https://gist.githubusercontent.com/stemcstudio/f80a201bf39b011c89d3a6c323fa90d2/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-attitude]
+[#g20-book-attitude]
 .Attitude
 image:attitude.svg[width=500, height=500]
 

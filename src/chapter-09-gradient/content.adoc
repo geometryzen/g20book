@@ -10,7 +10,7 @@ include::https://gist.githubusercontent.com/stemcstudio/e82033ebe82bc5fd991a33a8
 include::https://gist.githubusercontent.com/stemcstudio/e82033ebe82bc5fd991a33a820cb7f83/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-gradient]
+[#g20-book-gradient]
 .Gradient
 image:gradient.png[width=600, height=600]
 

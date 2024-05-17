@@ -1,6 +1,6 @@
 == Core Graphics Shapes
 
-[#g2o-book-core-elements]
+[#g20-book-core-elements]
 .Core Elements
 image:core-elements.svg[width=500, height=500]
 

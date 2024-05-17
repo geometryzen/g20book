@@ -10,7 +10,7 @@ include::https://gist.githubusercontent.com/stemcstudio/7106f94b7639ce77bbcf2fcc
 include::https://gist.githubusercontent.com/stemcstudio/7106f94b7639ce77bbcf2fcc88b217db/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-axes-and-grid]
+[#g20-book-axes-and-grid]
 .Axes and Grid
 image:axes-and-grid.svg[width=500, height=500]
 

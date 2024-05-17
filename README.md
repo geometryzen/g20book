@@ -1,4 +1,4 @@
-# g2o-book
+# @g20/book
 
 ## Notes
 

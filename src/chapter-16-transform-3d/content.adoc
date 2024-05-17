@@ -10,7 +10,7 @@ include::https://gist.githubusercontent.com/stemcstudio/278fd1666527a2e7415d0db7
 include::https://gist.githubusercontent.com/stemcstudio/278fd1666527a2e7415d0db724518cb7/raw/Transform3D.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-transform-3d]
+[#g20-book-transform-3d]
 .Transform 3D
 image:transform-3d.svg[width=600, height=600]
 

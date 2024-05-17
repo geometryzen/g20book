@@ -1,8 +1,8 @@
 {
-    "name": "g2o-book",
+    "name": "@g20/book",
     "private": "true",
     "version": "1.0.0",
-    "description": "The g2o Book",
+    "description": "The @g20 Book",
     "main": "index.js",
     "scripts": {
         "build": "npm run clean && bundle exec rake book:build",

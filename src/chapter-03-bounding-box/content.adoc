@@ -5,7 +5,7 @@
 include::https://gist.githubusercontent.com/stemcstudio/1a42386bba6be1118f7b5f46eb34b41c/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
-[#g2o-book-bounding-box]
+[#g20-book-bounding-box]
 .Bounding Box
 image:bounding-box.svg[width=500, height=500]
 
