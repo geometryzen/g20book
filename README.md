@@ -1,10 +1,5 @@
-# @g20/book
+# G20 Geometric Algebra 2D Graphics Book
 
 ## Notes
 
-### epubcheck
-
-Java 7 or a later version is required.
-
-https://www.w3.org/publishing/epubcheck/docs/running/
-
+### [@g20book](https://geometryzen.github.io/g20book)

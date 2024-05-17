@@ -3,6 +3,8 @@ namespace :book do
     INFILE = "book.#{EXT}"
     OUTFILE = 'book'
     SRC = 'src'
+    DOCS = 'docs'
+    WWW = 'www'
     # Variables referenced for build
     git_tags_string = `git describe --tags`.chomp
     if git_tags_string.empty?
@@ -68,7 +70,7 @@ namespace :book do
         check_contrib()
 
         puts 'Converting to EPub...'
-        sh "bundle exec asciidoctor-epub3 #{params} -a imagesdir=images -a rouge-style=github #{INFILE} -o dist/#{OUTFILE}.epub"
+        sh "bundle exec asciidoctor-epub3 #{params} -a imagesdir=images -a rouge-style=github #{INFILE} -o #{DOCS}/#{OUTFILE}.epub"
         puts ' -- Epub output at book.epub'
     end
 
@@ -77,7 +79,7 @@ namespace :book do
         check_contrib()
 
         puts 'Converting to HTML...'
-        sh "bundle exec asciidoctor #{params} -a imagesdir=images -a data-uri #{INFILE} -o dist/#{OUTFILE}.html"
+        sh "bundle exec asciidoctor #{params} -a imagesdir=images -a data-uri #{INFILE} -o #{WWW}/index.html"
         puts ' -- HTML output at book.html'
     end
 
@@ -86,7 +88,7 @@ namespace :book do
         check_contrib()
 
         puts "Converting to Mobi (kf8)..."
-        sh "bundle exec asciidoctor-epub3 #{params} -a imagesdir=images -a ebook-format=kf8 #{INFILE} -o dist/#{OUTFILE}.mobi"
+        sh "bundle exec asciidoctor-epub3 #{params} -a imagesdir=images -a ebook-format=kf8 #{INFILE} -o #{DOCS}/#{OUTFILE}.mobi"
         puts " -- Mobi output at book.mobi"
     end
 
@@ -95,7 +97,7 @@ namespace :book do
         check_contrib()
 
         puts 'Converting to PDF... (this one takes a while)'
-        sh "bundle exec asciidoctor-pdf #{params} -a imagesdir=images -a pdf-fontsdir=themes #{INFILE} -o dist/#{OUTFILE}.pdf 2>/dev/null"
+        sh "bundle exec asciidoctor-pdf #{params} -a imagesdir=images -a pdf-fontsdir=themes #{INFILE} -o #{DOCS}/#{OUTFILE}.pdf 2>/dev/null"
         puts ' -- PDF output at book.pdf'
     end
 
@@ -103,8 +105,8 @@ namespace :book do
     task :check => [:build_html, :build_epub] do
         puts 'Checking generated books'
 
-        # sh "htmlproofer dist/#{OUTFILE}.html"
-        # sh "epubcheck   dist/#{OUTFILE}.epub"
+        # sh "htmlproofer #{WWW}/index.html"
+        # sh "epubcheck   #{DOCS}/#{OUTFILE}.epub"
     end
 
     desc 'Clean all generated files'
@@ -112,7 +114,7 @@ namespace :book do
     begin
         puts 'Removing generated files'
 
-        FileList["#{SRC}/contributors.txt", "dist/#{OUTFILE}.html", "dist/#{OUTFILE}.epub", "dist/#{OUTFILE}.mobi", "dist/#{OUTFILE}.pdf"].each do |file|
+        FileList["#{SRC}/contributors.txt", "#{WWW}/#{OUTFILE}.html", "#{DOCS}/#{OUTFILE}.epub", "#{DOCS}/#{OUTFILE}.mobi", "#{DOCS}/#{OUTFILE}.pdf"].each do |file|
             rm file
 
             # Rescue if file not found

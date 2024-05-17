@@ -9,7 +9,8 @@
         "build_html": "npm run clean && bundle exec rake book:build_html",
         "check": "bundle exec rake book:check",
         "clean": "bundle exec rake book:clean",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "pages": "npm run build_html && gh-pages --dist www --dest book"
     },
     "repository": {
         "type": "git",
@@ -20,5 +21,8 @@
     "bugs": {
         "url": "https://github.com/geometryzen/g20book/issues"
     },
-    "homepage": "https://github.com/geometryzen/g20book#readme"
+    "homepage": "https://github.com/geometryzen/g20book#readme",
+    "devDependencies": {
+        "gh-pages": "^6.1.1"
+    }
 }
