@@ -691,7 +691,10 @@ pre.rouge .p, pre.rouge .pi {
 <p>If you want to include g20 in an existing web page that does not use a module loader, then you should use the bundled @g20/browser package, and select the UMD format from the disribution folder.</p>
 </div>
 <div class="paragraph">
-<p>If you are including g20 in a we application that uses module loading, then you should use the @g20/core, @g20/reactive, and @g20/svg packages.</p>
+<p>If you are including g20 in a web application that uses module loading, then you should use the @g20/core, @g20/reactive, and @g20/svg packages. Behind the scenes, the web application development environment is using EcmaScript Modules (ESM).</p>
+</div>
+<div class="paragraph">
+<p>If you are using STEMCstudio, the use of g20 feels very mush like you are using ESM, but in actuality the modules being used are in System format.</p>
 </div>
 <div class="sect2">
 <h3 id="_universal_module_definition_umd">1.1. Universal Module Definition (UMD)</h3>
