@@ -10,7 +10,7 @@
         "check": "bundle exec rake book:check",
         "clean": "bundle exec rake book:clean",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "pages": "npm run build_html && gh-pages --dist www --dest book"
+        "pages": "npm run build_html && gh-pages --dist www"
     },
     "repository": {
         "type": "git",

@@ -26,6 +26,7 @@ sed -i '3s/.*/v'$VERSION', {docdate}: Draft/' ./book.adoc
 
 npm install
 npm update
+npm run pages
 npm run build
 git status
 git add --all

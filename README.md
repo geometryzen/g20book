@@ -2,4 +2,4 @@
 
 ## Notes
 
-### [@g20book](https://geometryzen.github.io/g20book)
+### [HTML](https://geometryzen.github.io/g20book/index.html)

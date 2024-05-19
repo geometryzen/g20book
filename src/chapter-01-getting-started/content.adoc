@@ -1,11 +1,25 @@
 == Getting Started
 
+g20 provides several module formats and is bundled to support multiple use cases.
+
+If you want to include g20 in an existing web page that does not use a module loader, then you should use the bundled `@g20/browser` package, and select the `UMD` format from the distribution folder.
+
+If you are including g20 in a modern web application that uses module loading, then you should use the required `@g20/core`, `@g20/reactive`, and `@g20/svg` packages. Behind the scenes, the web application development environment is using EcmaScript Modules (`ESM`).
+
+If you are using STEMCstudio, then the developer experience using g20 feels very mush like you are using `ESM``, but in actuality the modules being used are in `System` format.
+
 === Universal Module Definition (UMD)
+
+The @g20/browser package contains most of the g20 packages bundled into a single file with the UMD format. This file may be loaded as a external script in an HTML file. Once loaded, functions, classes, and constants from the module will be available in the `G20` namespace.  
 
 [source,html,linenos]
 ----
 include::https://raw.githubusercontent.com/geometryzen/g20mono/main/packages/browser/www/index.html?cache_bust='{revdatetime}'[]
 ----
+
+You can explore this application in JSFiddle.
+
+https://jsfiddle.net/f4qka3po/
 
 === EcmaScript Modules (ESM)
 

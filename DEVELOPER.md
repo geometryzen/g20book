@@ -1,5 +1,9 @@
 ## Notes
 
+### Gemfile
+
+https://www.moncefbelyamani.com/how-to-update-gems-in-your-gemfile/
+
 ### epubcheck
 
 Java 7 or a later version is required.
