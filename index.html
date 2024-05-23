@@ -622,7 +622,7 @@ pre.rouge .p, pre.rouge .pi {
 <span id="author" class="author">David Geo Holmes</span><br>
 <span id="email" class="email"><a href="mailto:david.geo.holmes@gmail.com">david.geo.holmes@gmail.com</a></span><br>
 <span id="revnumber">version v0.1,</span>
-<span id="revdate">2024-05-19</span>
+<span id="revdate">2024-05-23</span>
 <br><span id="revremark">Draft</span>
 </div>
 <div id="toc" class="toc2">
@@ -631,13 +631,7 @@ pre.rouge .p, pre.rouge .pi {
 <li><a href="#_preface">Preface</a></li>
 <li><a href="#_acknowledgments">Acknowledgments</a></li>
 <li><a href="#_introduction">Introduction</a></li>
-<li><a href="#_getting_started">1. Getting Started</a>
-<ul class="sectlevel2">
-<li><a href="#_universal_module_definition_umd">1.1. Universal Module Definition (UMD)</a></li>
-<li><a href="#_ecmascript_modules_esm">1.2. EcmaScript Modules (ESM)</a></li>
-<li><a href="#_system_modules_system">1.3. System Modules (System)</a></li>
-</ul>
-</li>
+<li><a href="#_getting_started">1. Getting Started</a></li>
 <li><a href="#_fill_and_stroke_color">2. Fill and Stroke Color</a></li>
 <li><a href="#_coordinate_systems">3. Coordinate Systems</a></li>
 <li><a href="#_position_and_grid">4. Position and Grid</a></li>
@@ -655,6 +649,8 @@ pre.rouge .p, pre.rouge .pi {
 <li><a href="#_creating_png_image_files">16. Creating PNG image files</a></li>
 <li><a href="#_server_side_rendering">17. Server Side Rendering</a></li>
 <li><a href="#_extending">18. Extending</a></li>
+<li><a href="#appendix-esm">Appendix A: EcmaScript Modules (ESM)</a></li>
+<li><a href="#appendix-umd">Appendix B: Universal Module Definition (UMD)</a></li>
 </ul>
 </div>
 </div>
@@ -685,25 +681,84 @@ pre.rouge .p, pre.rouge .pi {
 <h2 id="_getting_started">1. Getting Started</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>g20 provides several module formats and is bundled to support multiple use cases.</p>
-</div>
-<div class="paragraph">
-<p>If you want to include g20 in an existing web page that does not use a module loader, then you should use the bundled <code>@g20/browser</code> package, and select the <code>UMD</code> format from the distribution folder.</p>
-</div>
-<div class="paragraph">
-<p>If you are including g20 in a modern web application that uses module loading, then you should use the required <code>@g20/core</code>, <code>@g20/reactive</code>, and <code>@g20/svg</code> packages. Behind the scenes, the web application development environment is using EcmaScript Modules (<code>ESM</code>).</p>
-</div>
-<div class="paragraph">
-<p>If you are using STEMCstudio, then the developer experience using g20 feels very mush like you are using <code>ESM`</code>, but in actuality the modules being used are in <code>System</code> format.</p>
-</div>
-<div class="sect2">
-<h3 id="_universal_module_definition_umd">1.1. Universal Module Definition (UMD)</h3>
-<div class="paragraph">
-<p>The @g20/browser package contains most of the g20 packages bundled into a single file with the UMD format. This file may be loaded as a external script in an HTML file. Once loaded, functions, classes, and constants from the module will be available in the <code>G20</code> namespace.</p>
+<p><span class="image"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgogICAgPGRlZnM+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0ibXktYm9hcmQtdmlld2JveCIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtMjUxIDI1MSAwIDI1MSAyNTEpIj4KICAgICAgICA8ZyBpZD0ibXktYm9hcmQtc2NlbmUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEgMCAwKSI+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjAxMTk1MjE5MTIzNTA1OTc2IiBkPSJNIC0wLjUgLTAuNSBMIC0wLjUgMC41IEwgMC41IDAuNSBMIDAuNSAtMC41IFoiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlLWRhc2hhcnJheT0iMC4wMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuMDExOTUyMTkxMjM1MDU5NzYiIGQ9Ik0gLTAuMzc1IC0wLjM3NSBMIC0wLjM3NSAwLjM3NSBMIDAuMzc1IDAuMzc1IEwgMC4zNzUgLTAuMzc1IFoiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZmlsbD0iI0ZGRkYwMCIgZmlsbC1vcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0ZGQ0MwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuNiIgc3Ryb2tlLXdpZHRoPSIwLjAxNTkzNjI1NDk4MDA3OTY4IiBkPSJNIC0wLjI1IC0wLjI1IEwgLTAuMjUgMC4yNSBMIDAuMjUgMC4yNSBMIDAuMjUgLTAuMjUgWiI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBmaWxsPSJyZ2IoMCwgMTkxLCAxNjgpIiBmaWxsLW9wYWNpdHk9IjAuMyIgc3Ryb2tlPSJyZ2IoMCwgMTkxLCAxNjgpIiBzdHJva2Utb3BhY2l0eT0iMC42IiBzdHJva2Utd2lkdGg9IjAuMDE1OTM2MjU0OTgwMDc5NjgiIGQ9Ik0gLTAuMTI1IC0wLjEyNSBMIC0wLjEyNSAwLjEyNSBMIDAuMTI1IDAuMTI1IEwgMC4xMjUgLTAuMTI1IFoiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MTA2IC0wLjcwNzEwNyAwLjcwNzEwNiAwLjcwNzEwNiAwLjUgMC41KSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+" alt="getting started" width="500" height="500"></span></p>
 </div>
 <div class="listingblock">
+<div class="title"><em>package.json dependencies</em></div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="json"><span class="w">    </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span></code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Package</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">@g20/core</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renderer Agnostic 2D Graphics Model</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">@g20/reactive</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signals and Effects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">@g20/svg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scalable Vector Graphics (SVG) Renderer</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<div class="listingblock">
+<div class="title"><em>index.html</em></div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="html"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">'en'</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">href=</span><span class="s">"style.css"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'my-board'</span> <span class="na">class=</span><span class="s">'board'</span> <span class="na">style=</span><span class="s">'width:500px; height:500px'</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="listingblock">
+<div class="title"><em>index.ts</em></div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="typescript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
  2
  3
  4
@@ -738,310 +793,37 @@ pre.rouge .p, pre.rouge .pi {
 33
 34
 35
-36
-37
-38
-39
-40
-41
-</pre></td><td class="code"><pre><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
-
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/@g20/browser@1.0.0-alpha.6/dist/umd/index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-        <span class="nt">body</span> <span class="p">{</span>
-            <span class="nl">background-color</span><span class="p">:</span> <span class="m">#cccccc</span><span class="p">;</span>
-            <span class="nl">margin</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="nc">.board</span> <span class="p">{</span>
-            <span class="nl">background-color</span><span class="p">:</span> <span class="m">#ffffff</span><span class="p">;</span>
-            <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span>
-            <span class="nl">border-width</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
-            <span class="nl">border-color</span><span class="p">:</span> <span class="m">#0066ff</span><span class="p">;</span>
-            <span class="nl">border-radius</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'my-board'</span> <span class="na">class=</span><span class="s">'board'</span> <span class="na">style=</span><span class="s">'width:500px; height:500px'</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-    <span class="kd">const</span> <span class="nx">board</span> <span class="o">=</span> <span class="nx">G20</span><span class="p">.</span><span class="nf">initBoard</span><span class="p">(</span><span class="dl">'</span><span class="s1">my-board</span><span class="dl">'</span><span class="p">)</span>
-    <span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span>
-        <span class="na">fillColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="na">fillOpacity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-        <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span>
-    <span class="p">})</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">onunload</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">board</span><span class="p">.</span><span class="nf">dispose</span><span class="p">()</span>
-    <span class="p">}</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can explore this application in JSFiddle.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://jsfiddle.net/f4qka3po/" class="bare">jsfiddle.net/f4qka3po/</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ecmascript_modules_esm">1.2. EcmaScript Modules (ESM)</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="json"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g20vite"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsc &amp;&amp; vite build"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"preview"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite preview"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.0-alpha.6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.0-alpha.6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.0-alpha.6"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"typescript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.4.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"vite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.2.11"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="html"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
-
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"/src/main.ts"</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'my-board'</span> <span class="na">class=</span><span class="s">'board'</span> <span class="na">style=</span><span class="s">'width:500px; height:500px'</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-
-<span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="typescript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-</pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/svg</span><span class="dl">'</span>
-<span class="k">import</span> <span class="dl">'</span><span class="s1">./style.css</span><span class="dl">'</span>
-
-<span class="kd">const</span> <span class="nx">board</span> <span class="o">=</span> <span class="nf">initBoard</span><span class="p">(</span><span class="dl">'</span><span class="s1">my-board</span><span class="dl">'</span><span class="p">)</span>
-
-<span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span>
-    <span class="na">fillColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">fillOpacity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFCC00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span>
-<span class="p">})</span>
-
-<span class="nb">window</span><span class="p">.</span><span class="nx">onunload</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="p">{</span>
-        <span class="nx">board</span><span class="p">.</span><span class="nf">dispose</span><span class="p">()</span>
-    <span class="p">}</span>
-    <span class="k">catch </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">e</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="typescript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="nx">body</span> <span class="p">{</span>
-    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="err">#</span><span class="nx">cccccc</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="mi">8</span><span class="nx">px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nx">board</span> <span class="p">{</span>
-    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="err">#</span><span class="nx">ffffff</span><span class="p">;</span>
-    <span class="nx">border</span><span class="o">-</span><span class="nx">style</span><span class="p">:</span> <span class="nx">solid</span><span class="p">;</span>
-    <span class="nx">border</span><span class="o">-</span><span class="nx">width</span><span class="p">:</span> <span class="mi">2</span><span class="nx">px</span><span class="p">;</span>
-    <span class="nx">border</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="err">#</span><span class="mi">0066</span><span class="nx">ff</span><span class="p">;</span>
-    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_system_modules_system">1.3. System Modules (System)</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="json"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@g20 Getting Started"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.6"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"@g20"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"book"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"getting"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"started"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g2o-getting-started"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David Geo Holmes"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="w">
-</span><span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="html"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">'en'</span><span class="nt">&gt;</span>
-
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">'stylesheet'</span> <span class="na">href=</span><span class="s">"style.css"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'my-board'</span> <span class="na">class=</span><span class="s">'board'</span> <span class="na">style=</span><span class="s">'width:500px; height:500px'</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-
-<span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="typescript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/svg</span><span class="dl">'</span>
+</pre></td><td class="code"><pre><span class="c1">// import { initBoard } from '@g20/svg'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/canvas</span><span class="dl">'</span>
 
 <span class="kd">const</span> <span class="nx">board</span> <span class="o">=</span> <span class="nf">initBoard</span><span class="p">(</span><span class="dl">'</span><span class="s1">my-board</span><span class="dl">'</span><span class="p">)</span>
 
 <span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">()</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span> <span class="na">dashes</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">],</span> <span class="na">width</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span> <span class="na">height</span><span class="p">:</span> <span class="mf">0.75</span> <span class="p">})</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">fillOpacity</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#FFCC00</span><span class="dl">"</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">strokeOpacity</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="nx">board</span><span class="p">.</span><span class="nx">sx</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span> <span class="na">width</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="na">height</span><span class="p">:</span> <span class="mf">0.5</span> <span class="p">})</span>
+
+<span class="kd">const</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span>
+    <span class="na">fillColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">rgb(0, 191, 168)</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">rgb(0, 191, 168)</span><span class="dl">'</span>
+<span class="p">})</span>
+
+<span class="nx">rectangle</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="nx">rectangle</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="nx">rectangle</span><span class="p">.</span><span class="nx">X</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nx">rectangle</span><span class="p">.</span><span class="nx">R</span><span class="p">.</span><span class="nf">rotorFromAngle</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="c1">// The following line is only needed for the canvas renderer.</span>
+<span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">board</span><span class="p">.</span><span class="nf">update</span><span class="p">()</span>
+<span class="p">})</span>
 
 <span class="nb">window</span><span class="p">.</span><span class="nx">onunload</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nx">board</span><span class="p">.</span><span class="nf">dispose</span><span class="p">()</span>
@@ -1049,7 +831,9 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="listingblock">
+<div class="title"><em>style.css</em></div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="css"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
  2
@@ -1078,9 +862,10 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div id="g20-book-getting-started" class="paragraph">
 <div class="title">Getting Started</div>
-<p><span class="image"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgogICAgPGRlZnM+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0ibXktYm9hcmQtdmlld2JveCIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtMjUwIDI1MCAwIDI1MCAyNTApIj4KICAgICAgICA8ZyBpZD0ibXktYm9hcmQtc2NlbmUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEgMCAwKSI+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjAxMiIgZD0iTSAtMC41IC0wLjUgTCAtMC41IDAuNSBMIDAuNSAwLjUgTCAwLjUgLTAuNSBaIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" alt="getting started" width="500" height="500"></span></p>
+<p><span class="image"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgogICAgPGRlZnM+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0ibXktYm9hcmQtdmlld2JveCIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtMjUxIDI1MSAwIDI1MSAyNTEpIj4KICAgICAgICA8ZyBpZD0ibXktYm9hcmQtc2NlbmUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEgMCAwKSI+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjAxMTk1MjE5MTIzNTA1OTc2IiBkPSJNIC0wLjUgLTAuNSBMIC0wLjUgMC41IEwgMC41IDAuNSBMIDAuNSAtMC41IFoiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlLWRhc2hhcnJheT0iMC4wMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuMDExOTUyMTkxMjM1MDU5NzYiIGQ9Ik0gLTAuMzc1IC0wLjM3NSBMIC0wLjM3NSAwLjM3NSBMIDAuMzc1IDAuMzc1IEwgMC4zNzUgLTAuMzc1IFoiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZmlsbD0iI0ZGRkYwMCIgZmlsbC1vcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0ZGQ0MwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuNiIgc3Ryb2tlLXdpZHRoPSIwLjAxNTkzNjI1NDk4MDA3OTY4IiBkPSJNIC0wLjI1IC0wLjI1IEwgLTAuMjUgMC4yNSBMIDAuMjUgMC4yNSBMIDAuMjUgLTAuMjUgWiI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBmaWxsPSJyZ2IoMCwgMTkxLCAxNjgpIiBmaWxsLW9wYWNpdHk9IjAuMyIgc3Ryb2tlPSJyZ2IoMCwgMTkxLCAxNjgpIiBzdHJva2Utb3BhY2l0eT0iMC42IiBzdHJva2Utd2lkdGg9IjAuMDE1OTM2MjU0OTgwMDc5NjgiIGQ9Ik0gLTAuMTI1IC0wLjEyNSBMIC0wLjEyNSAwLjEyNSBMIDAuMTI1IDAuMTI1IEwgMC4xMjUgLTAuMTI1IFoiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MTA2IC0wLjcwNzEwNyAwLjcwNzEwNiAwLjcwNzEwNiAwLjUgMC41KSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+" alt="getting started" width="500" height="500"></span></p>
 </div>
 <div class="paragraph">
 <p>You can view the application at the following URL:</p>
@@ -1093,7 +878,6 @@ pre.rouge .p, pre.rouge .pi {
 </div>
 <div class="paragraph">
 <p><a href="https://www.stemcstudio.com/gists/6670c7efb04edc14c69cde9b9e95a75b" class="bare">www.stemcstudio.com/gists/6670c7efb04edc14c69cde9b9e95a75b</a></p>
-</div>
 </div>
 </div>
 </div>
@@ -1150,6 +934,10 @@ pre.rouge .p, pre.rouge .pi {
 <div class="sect1">
 <h2 id="_coordinate_systems">3. Coordinate Systems</h2>
 <div class="sectionbody">
+<div id="g20-book-bounding-box-default" class="paragraph">
+<div class="title">Default Bounding Box</div>
+<p><span class="image"><img src="data:image/png;base64,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" alt="bounding box default" width="300" height="300"></span></p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="typescript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
@@ -1175,17 +963,85 @@ pre.rouge .p, pre.rouge .pi {
 21
 22
 23
-</pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">Grid</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/grid</span><span class="dl">'</span>
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+</pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">Axes</span><span class="p">,</span> <span class="nx">Grid</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/grid</span><span class="dl">'</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/svg</span><span class="dl">'</span>
 
 <span class="kd">const</span> <span class="nx">board</span> <span class="o">=</span> <span class="nf">initBoard</span><span class="p">(</span><span class="dl">'</span><span class="s1">my-board</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">boundingBox</span><span class="p">:</span> <span class="p">{</span> <span class="na">left</span><span class="p">:</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="na">top</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="na">right</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="na">bottom</span><span class="p">:</span> <span class="o">-</span><span class="mi">50</span> <span class="p">}</span>
+    <span class="c1">// boundingBox: { left: -50, top: -50, right: 50, bottom: 50 }</span>
+    <span class="c1">// boundingBox: { left: 50, top: -50, right: -50, bottom: 50 }</span>
+    <span class="c1">// boundingBox: { left: 50, top: 50, right: -50, bottom: -50 }</span>
 <span class="p">})</span>
 
-<span class="kd">const</span> <span class="nx">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Grid</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">grid</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">point</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">{</span> <span class="na">text</span><span class="p">:</span> <span class="dl">"</span><span class="s2">(0,0)</span><span class="dl">"</span><span class="p">,</span> <span class="na">dx</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="na">dy</span><span class="p">:</span> <span class="mi">10</span> <span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">point</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">{</span>
+    <span class="na">text</span><span class="p">:</span> <span class="s2">`(-40,40)`</span><span class="p">,</span>
+    <span class="na">anchor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">start</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">baseline</span><span class="p">:</span> <span class="dl">"</span><span class="s2">middle</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">dx</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">point</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">],</span> <span class="p">{</span>
+    <span class="na">text</span><span class="p">:</span> <span class="s2">`(-40,-40)`</span><span class="p">,</span>
+    <span class="na">anchor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">start</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">baseline</span><span class="p">:</span> <span class="dl">"</span><span class="s2">middle</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">dx</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">point</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">],</span> <span class="p">{</span>
+    <span class="na">text</span><span class="p">:</span> <span class="s2">`(40,-40)`</span><span class="p">,</span>
+    <span class="na">anchor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">end</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">baseline</span><span class="p">:</span> <span class="dl">"</span><span class="s2">middle</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">dx</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
+<span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">point</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">{</span>
+    <span class="na">text</span><span class="p">:</span> <span class="s2">`(40,40)`</span><span class="p">,</span>
+    <span class="na">anchor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">end</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">baseline</span><span class="p">:</span> <span class="dl">"</span><span class="s2">middle</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">dx</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span>
+<span class="p">})</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nf">text</span><span class="p">(</span><span class="s2">`board.goofy: </span><span class="p">${</span><span class="nx">board</span><span class="p">.</span><span class="nx">goofy</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">{</span> <span class="na">position</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span> <span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">text</span><span class="p">(</span><span class="s2">`board.crazy: </span><span class="p">${</span><span class="nx">board</span><span class="p">.</span><span class="nx">crazy</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">{</span> <span class="na">position</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span> <span class="p">})</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="nx">board</span><span class="p">.</span><span class="nx">sx</span>
+
+<span class="kd">const</span> <span class="nx">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Grid</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">grid</span><span class="dl">'</span><span class="p">,</span> <span class="na">opacity</span><span class="p">:</span> <span class="mf">0.4</span> <span class="p">})</span>
 <span class="nx">board</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">grid</span><span class="p">)</span>
 
-<span class="nx">grid</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="kd">const</span> <span class="nx">axes</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Axes</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">axes</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">axes</span><span class="p">)</span>
 
 <span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span>
     <span class="na">width</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
@@ -1196,14 +1052,12 @@ pre.rouge .p, pre.rouge .pi {
     <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
     <span class="na">strokeWidth</span><span class="p">:</span> <span class="mi">4</span> <span class="o">/</span> <span class="nx">board</span><span class="p">.</span><span class="nx">sx</span>
 <span class="p">})</span>
-
-<span class="k">export</span> <span class="p">{</span> <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div id="g20-book-bounding-box" class="paragraph">
 <div class="title">Bounding Box</div>
-<p><span class="image"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgogICAgPGRlZnM+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0ibXktYm9hcmQtdmlld2JveCIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtMTI1IDEyNSAwIDI1MCAyNTApIj4KICAgICAgICA8ZyBpZD0ibXktYm9hcmQtc2NlbmUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEgMCAwKSI+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLXdpZHRoPSIwLjAxNiIgZD0iTSAtMi41IC0yIEwgLTIuNSAyICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTIgLTIuNSBMIDIgLTIuNSAiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSJncmF5IiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjAuMDE2IiBkPSJNIC0yIC0yIEwgLTIgMiAiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSJncmF5IiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjAuMDE2IiBkPSJNIC0yIC0yIEwgMiAtMiAiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSJncmF5IiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjAuMDE2IiBkPSJNIC0xLjUgLTIgTCAtMS41IDIgIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLXdpZHRoPSIwLjAxNiIgZD0iTSAtMiAtMS41IEwgMiAtMS41ICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTEgLTIgTCAtMSAyICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTIgLTEgTCAyIC0xICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTAuNSAtMiBMIC0wLjUgMiAiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSJncmF5IiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjAuMDE2IiBkPSJNIC0yIC0wLjUgTCAyIC0wLjUgIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLXdpZHRoPSIwLjAxNiIgZD0iTSAwIC0yIEwgMCAyICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTIgMCBMIDIgMCAiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSJncmF5IiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjAuMDE2IiBkPSJNIDAuNSAtMiBMIDAuNSAyICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTIgMC41IEwgMiAwLjUgIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLXdpZHRoPSIwLjAxNiIgZD0iTSAxIC0yIEwgMSAyICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTIgMSBMIDIgMSAiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSJncmF5IiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjAuMDE2IiBkPSJNIDEuNSAtMiBMIDEuNSAyICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTIgMS41IEwgMiAxLjUgIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLXdpZHRoPSIwLjAxNiIgZD0iTSAyIC0yIEwgMiAyICI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBzdHJva2U9ImdyYXkiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMC4wMTYiIGQ9Ik0gLTIgMiBMIDIgMiAiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZmlsbD0iI0ZGRkYwMCIgZmlsbC1vcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0ZGQ0MwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuNiIgc3Ryb2tlLXdpZHRoPSIwLjAzMiIgZD0iTSAtMC41IC0xIEwgLTAuNSAxIEwgMC41IDEgTCAwLjUgLTEgWiAiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="bounding box" width="500" height="500"></span></p>
+<p><span class="image"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgogICAgPGRlZnM+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0ibXktYm9hcmQtdmlld2JveCIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtNSA1IDAgMjUwIDI1MCkiPgogICAgICAgIDxnIGlkPSJteS1ib2FyZC1zY2VuZSIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgMSAwIDApIj4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgMSAwIDApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9ImdyYXkiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjYiIGQ9Ik0gMCAwLjggQyAwLjQ0MTgyNyAwLjggMC44IDAuNDQxODI3IDAuOCAwIEMgMC44IC0wLjQ0MTgyOCAwLjQ0MTgyNyAtMC44IDAgLTAuOCBDIC0wLjQ0MTgyOCAtMC44MDAwMDEgLTAuOCAtMC40NDE4MjggLTAuOCAtMC4wMDAwMDEgQyAtMC44MDAwMDEgMC40NDE4MjcgLTAuNDQxODI4IDAuOCAwIDAuOCBaIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8dGV4dCBmaWxsPSJncmF5IiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC42IiB0cmFuc2Zvcm09Im1hdHJpeCgwIDAuMTk5OTk5IC0wLjIgMCAwIDApIiB0ZXh0LWRlY29yYXRpb249Im5vbmUiIGR4PSIxMCIgZHk9Ii0xMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGlkPSJudWxsIj4oMCwwKTwvdGV4dD4KICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDQwIC00MCkiPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iZ3JheSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNiIgZD0iTSAwIDAuOCBDIDAuNDQxODI3IDAuOCAwLjggMC40NDE4MjcgMC44IDAgQyAwLjggLTAuNDQxODI4IDAuNDQxODI3IC0wLjggMCAtMC44IEMgLTAuNDQxODI4IC0wLjgwMDAwMSAtMC44IC0wLjQ0MTgyOCAtMC44IC0wLjAwMDAwMSBDIC0wLjgwMDAwMSAwLjQ0MTgyNyAtMC40NDE4MjggMC44IDAgMC44IFoiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDx0ZXh0IGZpbGw9ImdyYXkiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjYiIHRyYW5zZm9ybT0ibWF0cml4KDAgMC4xOTk5OTkgLTAuMiAwIDAgMCkiIHRleHQtZGVjb3JhdGlvbj0ibm9uZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZHg9IjEwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgaWQ9Im51bGwiPigtNDAsNDApPC90ZXh0PgogICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEgLTQwIC00MCkiPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iZ3JheSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNiIgZD0iTSAwIDAuOCBDIDAuNDQxODI3IDAuOCAwLjggMC40NDE4MjcgMC44IDAgQyAwLjggLTAuNDQxODI4IDAuNDQxODI3IC0wLjggMCAtMC44IEMgLTAuNDQxODI4IC0wLjgwMDAwMSAtMC44IC0wLjQ0MTgyOCAtMC44IC0wLjAwMDAwMSBDIC0wLjgwMDAwMSAwLjQ0MTgyNyAtMC40NDE4MjggMC44IDAgMC44IFoiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDx0ZXh0IGZpbGw9ImdyYXkiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjYiIHRyYW5zZm9ybT0ibWF0cml4KDAgMC4xOTk5OTkgLTAuMiAwIDAgMCkiIHRleHQtZGVjb3JhdGlvbj0ibm9uZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZHg9IjEwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgaWQ9Im51bGwiPigtNDAsLTQwKTwvdGV4dD4KICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIC00MCA0MCkiPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iZ3JheSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNiIgZD0iTSAwIDAuOCBDIDAuNDQxODI3IDAuOCAwLjggMC40NDE4MjcgMC44IDAgQyAwLjggLTAuNDQxODI4IDAuNDQxODI3IC0wLjggMCAtMC44IEMgLTAuNDQxODI4IC0wLjgwMDAwMSAtMC44IC0wLjQ0MTgyOCAtMC44IC0wLjAwMDAwMSBDIC0wLjgwMDAwMSAwLjQ0MTgyNyAtMC40NDE4MjggMC44IDAgMC44IFoiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDx0ZXh0IGZpbGw9ImdyYXkiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjYiIHRyYW5zZm9ybT0ibWF0cml4KDAgMC4xOTk5OTkgLTAuMiAwIDAgMCkiIHRleHQtYW5jaG9yPSJlbmQiIHRleHQtZGVjb3JhdGlvbj0ibm9uZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZHg9Ii0xMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGlkPSJudWxsIj4oNDAsLTQwKTwvdGV4dD4KICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDQwIDQwKSI+CiAgICAgICAgICAgICAgICA8cGF0aCBmaWxsPSJncmF5IiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC42IiBkPSJNIDAgMC44IEMgMC40NDE4MjcgMC44IDAuOCAwLjQ0MTgyNyAwLjggMCBDIDAuOCAtMC40NDE4MjggMC40NDE4MjcgLTAuOCAwIC0wLjggQyAtMC40NDE4MjggLTAuODAwMDAxIC0wLjggLTAuNDQxODI4IC0wLjggLTAuMDAwMDAxIEMgLTAuODAwMDAxIDAuNDQxODI3IC0wLjQ0MTgyOCAwLjggMCAwLjggWiI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHRleHQgZmlsbD0iZ3JheSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNiIgdHJhbnNmb3JtPSJtYXRyaXgoMCAwLjE5OTk5OSAtMC4yIDAgMCAwKSIgdGV4dC1hbmNob3I9ImVuZCIgdGV4dC1kZWNvcmF0aW9uPSJub25lIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBkeD0iLTEwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgaWQ9Im51bGwiPig0MCw0MCk8L3RleHQ+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPHRleHQgZmlsbD0iZ3JheSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNiIgdHJhbnNmb3JtPSJtYXRyaXgoMCAwLjE5OTk5OSAtMC4yIDAgMjUgMTApIiB0ZXh0LWRlY29yYXRpb249Im5vbmUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwIiBpZD0ibnVsbCI+Ym9hcmQuZ29vZnk6IGZhbHNlPC90ZXh0PgogICAgICAgICAgICA8dGV4dCBmaWxsPSJncmF5IiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC42IiB0cmFuc2Zvcm09Im1hdHJpeCgwIDAuMTk5OTk5IC0wLjIgMCAyMCAxMCkiIHRleHQtZGVjb3JhdGlvbj0ibm9uZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGlkPSJudWxsIj5ib2FyZC5jcmF6eTogZmFsc2U8L3RleHQ+CiAgICAgICAgICAgIDxnIGlkPSJncmlkIiBvcGFjaXR5PSIwLjQiPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtNDAgLTUwIEwgLTQwIDUwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC40IiBkPSJNIC0zMCAtNTAgTCAtMzAgNTAiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjQiIGQ9Ik0gLTIwIC01MCBMIC0yMCA1MCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtMTAgLTUwIEwgLTEwIDUwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC40IiBkPSJNIDAgLTUwIEwgMCA1MCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAxMCAtNTAgTCAxMCA1MCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAyMCAtNTAgTCAyMCA1MCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAzMCAtNTAgTCAzMCA1MCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSA0MCAtNTAgTCA0MCA1MCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtNTAgLTQwIEwgNTAgLTQwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC40IiBkPSJNIC01MCAtMzAgTCA1MCAtMzAiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjQiIGQ9Ik0gLTUwIC0yMCBMIDUwIC0yMCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtNTAgLTEwIEwgNTAgLTEwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC40IiBkPSJNIC01MCAwIEwgNTAgMCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtNTAgMTAgTCA1MCAxMCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtNTAgMjAgTCA1MCAyMCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtNTAgMzAgTCA1MCAzMCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNCIgZD0iTSAtNTAgNDAgTCA1MCA0MCI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDxnIGlkPSJheGVzIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLXdpZHRoPSIwLjYiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEgMCAtNDUpIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0gMCAwIEwgMCA5MCBMIDAgOTAgTCAwLjczODEwNCA4Ny42MTE0NDMgTCAwIDkwIEwgLTAuNzM4MTA1IDg3LjYxMTQ0MyI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBzdHJva2Utd2lkdGg9IjAuNiIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgMSAtNDUgMCkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTSAwIDAgTCA5MCAwIEwgOTAgMCBMIDg3LjYxMTQ0MyAtMC43MzgxMDUgTCA5MCAwIEwgODcuNjExNDQzIDAuNzM4MTA0Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8dGV4dCBmaWxsPSJncmF5IiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC42IiB0cmFuc2Zvcm09Im1hdHJpeCgwIDAuMTk5OTk5IC0wLjIgMCAwIDQ1KSIgdGV4dC1kZWNvcmF0aW9uPSJub25lIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBkeD0iOS42IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgaWQ9Im51bGwiPng8L3RleHQ+CiAgICAgICAgICAgICAgICA8dGV4dCBmaWxsPSJncmF5IiBzdHJva2U9ImdyYXkiIHN0cm9rZS13aWR0aD0iMC42IiB0cmFuc2Zvcm09Im1hdHJpeCgwIDAuMTk5OTk5IC0wLjIgMCA0NSAwKSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgdGV4dC1kZWNvcmF0aW9uPSJub25lIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBkeT0iLTE2IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgaWQ9Im51bGwiPnk8L3RleHQ+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPHBhdGggZmlsbD0iI0ZGRkYwMCIgZmlsbC1vcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0ZGQ0MwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuNiIgc3Ryb2tlLXdpZHRoPSIwLjgiIGQ9Ik0gLTEwIC0yMCBMIC0xMCAyMCBMIDEwIDIwIEwgMTAgLTIwIFoiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="bounding box" width="500" height="500"></span></p>
 </div>
 <div class="paragraph">
 <p>You can view the application at the following URL:</p>
@@ -1487,7 +1341,7 @@ pre.rouge .p, pre.rouge .pi {
 
 <span class="nx">board</span><span class="p">.</span><span class="nf">text</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello, World</span><span class="dl">"</span><span class="p">)</span>
 
-<span class="nx">board</span><span class="p">.</span><span class="nf">arc</span><span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">arc</span><span class="p">({</span> <span class="na">innerRadius</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span> <span class="na">outerRadius</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="na">startAngle</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">endAngle</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">2</span> <span class="p">})</span>
 
 <span class="nx">board</span><span class="p">.</span><span class="nf">path</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span>
     <span class="p">[</span>
@@ -1907,11 +1761,11 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td><td class="code"><pre><span class="p">{</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@g20 Gradient Effects"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/gradient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.5"</span><span class="w">
+        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/gradient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g2o-gradient"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
@@ -2188,10 +2042,10 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td><td class="code"><pre><span class="p">{</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@g20 More Graphics Shapes"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.3"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.3"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/graphics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.3"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.3"</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/graphics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g2o-graphics"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
@@ -2250,11 +2104,6 @@ pre.rouge .p, pre.rouge .pi {
 40
 41
 42
-43
-44
-45
-46
-47
 </pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">RegularPolygon</span><span class="p">,</span> <span class="nx">RoundedRectangle</span><span class="p">,</span> <span class="nx">Star</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/graphics</span><span class="dl">'</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/svg</span><span class="dl">'</span>
 
@@ -2262,28 +2111,27 @@ pre.rouge .p, pre.rouge .pi {
 
 <span class="kd">const</span> <span class="nx">board</span> <span class="o">=</span> <span class="nf">initBoard</span><span class="p">(</span><span class="dl">'</span><span class="s1">my-board</span><span class="dl">'</span><span class="p">)</span>
 
-<span class="kd">const</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RoundedRectangle</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="p">{</span>
+<span class="c1">// The graphics shapes use the polygon defaults...</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">polygon</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">polygon</span><span class="p">.</span><span class="nx">fillOpacity</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">polygon</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#FFCC00</span><span class="dl">"</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">polygon</span><span class="p">.</span><span class="nx">strokeOpacity</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">polygon</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="nx">board</span><span class="p">.</span><span class="nx">sx</span>
+
+<span class="kd">const</span> <span class="nx">rounded</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RoundedRectangle</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">rectangle</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">width</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">SQRT2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
     <span class="na">height</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">SQRT2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
     <span class="na">position</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="na">fillColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">fillOpacity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFCC00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
     <span class="na">strokeWidth</span><span class="p">:</span> <span class="mi">4</span> <span class="o">/</span> <span class="nx">board</span><span class="p">.</span><span class="nx">sx</span>
 <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">rounded</span><span class="p">)</span>
 
 <span class="kd">const</span> <span class="nx">polygon</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RegularPolygon</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">polygon</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">position</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="na">fillColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">fillOpacity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
     <span class="na">radius</span><span class="p">:</span> <span class="mi">1</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
     <span class="na">sides</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-    <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFCC00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
     <span class="na">strokeWidth</span><span class="p">:</span> <span class="mi">4</span> <span class="o">/</span> <span class="nx">board</span><span class="p">.</span><span class="nx">sx</span>
 <span class="p">})</span>
 <span class="nx">board</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">polygon</span><span class="p">)</span>
@@ -2294,10 +2142,6 @@ pre.rouge .p, pre.rouge .pi {
     <span class="na">innerRadius</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
     <span class="na">outerRadius</span><span class="p">:</span> <span class="mi">1</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
     <span class="na">position</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">size</span> <span class="o">/</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="na">fillColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">fillOpacity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFCC00</span><span class="dl">"</span><span class="p">,</span>
-    <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
     <span class="na">strokeWidth</span><span class="p">:</span> <span class="mi">4</span> <span class="o">/</span> <span class="nx">board</span><span class="p">.</span><span class="nx">sx</span><span class="p">,</span>
     <span class="na">twist</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="p">})</span>
@@ -2350,10 +2194,10 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td><td class="code"><pre><span class="p">{</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@g20 Axes and Grid"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.4"</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g2o-grid"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
@@ -2386,6 +2230,11 @@ pre.rouge .p, pre.rouge .pi {
 13
 14
 15
+16
+17
+18
+19
+20
 </pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">Axes</span><span class="p">,</span> <span class="nx">Grid</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/grid</span><span class="dl">'</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/svg</span><span class="dl">'</span>
 
@@ -2395,6 +2244,11 @@ pre.rouge .p, pre.rouge .pi {
     <span class="c1">// boundingBox: { left: 10, top: +10, right: -10, bottom: -10 }     // crazy only</span>
     <span class="c1">// boundingBox: { left: 10, top: -10, right: -10, bottom: 10 }      // crazy and goofy</span>
 <span class="p">})</span>
+
+<span class="c1">// board.defaults.text.fillColor = 'red'</span>
+<span class="c1">// board.defaults.text.strokeColor = 'red'</span>
+<span class="c1">// board.defaults.line.strokeColor = 'red'</span>
+<span class="c1">// board.defaults.arrow.strokeColor = 'red'</span>
 
 <span class="kd">const</span> <span class="nx">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Grid</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="p">{})</span>
 <span class="nx">board</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">grid</span><span class="p">)</span>
@@ -2501,6 +2355,12 @@ pre.rouge .p, pre.rouge .pi {
 72
 73
 74
+75
+76
+77
+78
+79
+80
 </pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/svg</span><span class="dl">'</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">TrackballControls</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">g3o</span><span class="dl">'</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">Camera</span><span class="p">,</span> <span class="nx">Prism</span><span class="p">,</span> <span class="nx">Transform3D</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./Transform3D</span><span class="dl">'</span>
@@ -2533,20 +2393,26 @@ pre.rouge .p, pre.rouge .pi {
 <span class="kd">const</span> <span class="nx">P110</span> <span class="o">=</span> <span class="nx">board</span><span class="p">.</span><span class="nf">point</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]).</span><span class="nf">hide</span><span class="p">()</span>
 <span class="kd">const</span> <span class="nx">P111</span> <span class="o">=</span> <span class="nx">board</span><span class="p">.</span><span class="nf">point</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]).</span><span class="nf">hide</span><span class="p">()</span>
 
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P000</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P100</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P011</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P111</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P010</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P110</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P001</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P101</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span>
 
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P000</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P010</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P101</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P111</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P001</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P011</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P100</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P110</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P000</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P100</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P011</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P111</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P010</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P110</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P001</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P101</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
 
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P000</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P001</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P110</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P111</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P100</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P101</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span> <span class="p">})</span>
-<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P010</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P011</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="p">{</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">green</span><span class="dl">"</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P000</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P010</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P101</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P111</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P001</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P011</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P100</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P110</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P000</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P001</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P110</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P111</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P100</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P101</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
+<span class="nx">board</span><span class="p">.</span><span class="nf">line</span><span class="p">(</span><span class="nx">P010</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">P011</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span>
 
 <span class="kd">const</span> <span class="nx">trackball</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TrackballControls</span><span class="p">(</span><span class="nx">camera</span><span class="p">,</span> <span class="nb">window</span><span class="p">)</span>
 <span class="nx">trackball</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">my-board</span><span class="dl">"</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
@@ -2824,11 +2690,11 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td><td class="code"><pre><span class="p">{</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@g20 Creating PNG Image Files"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"@g20"</span><span class="p">,</span><span class="w">
@@ -2910,7 +2776,7 @@ pre.rouge .p, pre.rouge .pi {
     <span class="na">vectorEffect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">non-scaling-stroke</span><span class="dl">'</span>
 <span class="p">})</span>
 
-<span class="nx">box</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span>
+<span class="nx">box</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">#0000FF</span><span class="dl">'</span>
 
 <span class="c1">// This doesn't work because the microtask that changes the fill color</span>
 <span class="c1">// runs (asynchronously) after the update has executed.</span>
@@ -2975,11 +2841,11 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td><td class="code"><pre><span class="p">{</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@g20 Creating PNG Image Files"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"@g20"</span><span class="p">,</span><span class="w">
@@ -3061,7 +2927,7 @@ pre.rouge .p, pre.rouge .pi {
     <span class="na">vectorEffect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">non-scaling-stroke</span><span class="dl">'</span>
 <span class="p">})</span>
 
-<span class="nx">box</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span>
+<span class="nx">box</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">#0000FF</span><span class="dl">'</span>
 
 <span class="c1">// This doesn't work because the microtask that changes the fill color</span>
 <span class="c1">// runs (asynchronously) after the update has executed.</span>
@@ -3126,11 +2992,11 @@ pre.rouge .p, pre.rouge .pi {
 </pre></td><td class="code"><pre><span class="p">{</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@g20 Creating PNG Image Files"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.0"</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/canvas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/grid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0-alpha.31"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"@g20"</span><span class="p">,</span><span class="w">
@@ -3212,7 +3078,7 @@ pre.rouge .p, pre.rouge .pi {
     <span class="na">vectorEffect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">non-scaling-stroke</span><span class="dl">'</span>
 <span class="p">})</span>
 
-<span class="nx">box</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span>
+<span class="nx">box</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">#0000FF</span><span class="dl">'</span>
 
 <span class="c1">// This doesn't work because the microtask that changes the fill color</span>
 <span class="c1">// runs (asynchronously) after the update has executed.</span>
@@ -3248,11 +3114,265 @@ pre.rouge .p, pre.rouge .pi {
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="appendix-esm">Appendix A: EcmaScript Modules (ESM)</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="json"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g20vite"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsc &amp;&amp; vite build"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"preview"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite preview"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@g20/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.0-alpha.6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/reactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.0-alpha.6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@g20/svg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.0-alpha.6"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"typescript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.4.5"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"vite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.2.11"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"/src/main.ts"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'my-board'</span> <span class="na">class=</span><span class="s">'board'</span> <span class="na">style=</span><span class="s">'width:500px; height:500px'</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="typescript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">initBoard</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@g20/svg</span><span class="dl">'</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">./style.css</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">board</span> <span class="o">=</span> <span class="nf">initBoard</span><span class="p">(</span><span class="dl">'</span><span class="s1">my-board</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span>
+    <span class="na">fillColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">fillOpacity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFCC00</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span>
+<span class="p">})</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">onunload</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">board</span><span class="p">.</span><span class="nf">dispose</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">catch </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">e</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="typescript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="nx">body</span> <span class="p">{</span>
+    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="err">#</span><span class="nx">cccccc</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="mi">8</span><span class="nx">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nx">board</span> <span class="p">{</span>
+    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="err">#</span><span class="nx">ffffff</span><span class="p">;</span>
+    <span class="nx">border</span><span class="o">-</span><span class="nx">style</span><span class="p">:</span> <span class="nx">solid</span><span class="p">;</span>
+    <span class="nx">border</span><span class="o">-</span><span class="nx">width</span><span class="p">:</span> <span class="mi">2</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nx">border</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="err">#</span><span class="mi">0066</span><span class="nx">ff</span><span class="p">;</span>
+    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix-umd">Appendix B: Universal Module Definition (UMD)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The @g20/browser package contains most of the g20 packages bundled into a single file with the UMD format. This file may be loaded as a external script in an HTML file. Once loaded, functions, classes, and constants from the module will be available in the <code>G20</code> namespace.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="code"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/@g20/browser@1.0.0-alpha.6/dist/umd/index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nt">body</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="m">#cccccc</span><span class="p">;</span>
+                <span class="nl">margin</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nc">.board</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="m">#ffffff</span><span class="p">;</span>
+                <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span>
+                <span class="nl">border-width</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+                <span class="nl">border-color</span><span class="p">:</span> <span class="m">#0066ff</span><span class="p">;</span>
+                <span class="nl">border-radius</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"my-board"</span> <span class="na">class=</span><span class="s">"board"</span> <span class="na">style=</span><span class="s">"width: 500px; height: 500px"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+        <span class="kd">const</span> <span class="nx">board</span> <span class="o">=</span> <span class="nx">G20</span><span class="p">.</span><span class="nf">initBoard</span><span class="p">(</span><span class="dl">"</span><span class="s2">my-board</span><span class="dl">"</span><span class="p">);</span>
+        <span class="nx">board</span><span class="p">.</span><span class="nf">rectangle</span><span class="p">({</span>
+            <span class="na">fillColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="na">fillOpacity</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+            <span class="na">strokeColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FFFF00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="na">strokeOpacity</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+        <span class="p">});</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">onunload</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">board</span><span class="p">.</span><span class="nf">dispose</span><span class="p">();</span>
+        <span class="p">};</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can explore this application in JSFiddle.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://jsfiddle.net/f4qka3po/" class="bare">jsfiddle.net/f4qka3po/</a></p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version v0.1<br>
-Last updated 2024-05-19 09:55:57 -0400
+Last updated 2024-05-23 13:56:36 -0400
 </div>
 </div>
 </body>
