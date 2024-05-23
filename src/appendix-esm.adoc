@@ -1,0 +1,24 @@
+[[appendix-esm]]
+[appendix]
+
+== EcmaScript Modules (ESM)
+
+[source,json,linenos]
+----
+include::https://raw.githubusercontent.com/geometryzen/g20vite/main/package.json?cache_bust='{revdatetime}'[]
+----
+
+[source,html,linenos]
+----
+include::https://raw.githubusercontent.com/geometryzen/g20vite/main/index.html?cache_bust='{revdatetime}'[]
+----
+
+[source,typescript,linenos]
+----
+include::https://raw.githubusercontent.com/geometryzen/g20vite/main/src/main.ts?cache_bust='{revdatetime}'[]
+----
+
+[source,typescript,linenos]
+----
+include::https://raw.githubusercontent.com/geometryzen/g20vite/main/src/style.css?cache_bust='{revdatetime}'[]
+----

@@ -1,5 +1,15 @@
 ## Notes
 
+### Ruby
+
+`sudo apt-get install ruby-full`
+
+`gem install rake`
+
+`gem install bundle`
+
+`bundle install`
+
 ### Gemfile
 
 https://www.moncefbelyamani.com/how-to-update-gems-in-your-gemfile/

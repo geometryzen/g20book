@@ -1,6 +1,6 @@
 = @g20: Scalable Vector Graphics
 David Geo Holmes <david.geo.holmes@gmail.com>
-v1.0.0, {docdate}: Draft
+v1.0.0-alpha.31, {docdate}: Draft
 :author: David Geo Holmes
 :email: david.geo.holmes@gmail.com
 :revnumber: v0.1
@@ -97,7 +97,9 @@ include::src/chapter-19-extending/content.adoc[]
 // include::src/bibliography.adoc[]
 
 // [appendix]
-// include::src/appendix.adoc[]
+include::src/appendix-esm.adoc[]
+
+include::src/appendix-umd.adoc[]
 
 ifdef::backend-docbook[]
 [index]

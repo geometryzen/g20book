@@ -2,9 +2,12 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" preserveAspectRatio="xMidYMid meet">
     <defs>
     </defs>
-    <g id="my-board-viewbox" transform="matrix(0 -250 250 0 250 250)">
+    <g id="my-board-viewbox" transform="matrix(0 -251 251 0 251 251)">
         <g id="my-board-scene" transform="matrix(1 0 0 1 0 0)">
-            <path fill="none" stroke="gray" stroke-width="0.012" d="M -0.5 -0.5 L -0.5 0.5 L 0.5 0.5 L 0.5 -0.5 Z"></path>
+            <path fill="none" stroke="gray" stroke-width="0.01195219123505976" d="M -0.5 -0.5 L -0.5 0.5 L 0.5 0.5 L 0.5 -0.5 Z"></path>
+            <path stroke-dasharray="0.02" fill="none" stroke="gray" stroke-width="0.01195219123505976" d="M -0.375 -0.375 L -0.375 0.375 L 0.375 0.375 L 0.375 -0.375 Z"></path>
+            <path fill="#FFFF00" fill-opacity="0.3" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="0.01593625498007968" d="M -0.25 -0.25 L -0.25 0.25 L 0.25 0.25 L 0.25 -0.25 Z"></path>
+            <path fill="rgb(0, 191, 168)" fill-opacity="0.3" stroke="rgb(0, 191, 168)" stroke-opacity="0.6" stroke-width="0.01593625498007968" d="M -0.125 -0.125 L -0.125 0.125 L 0.125 0.125 L 0.125 -0.125 Z" transform="matrix(0.707106 -0.707107 0.707106 0.707106 0.5 0.5)"></path>
         </g>
     </g>
 </svg>

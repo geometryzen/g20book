@@ -1,69 +1,52 @@
 == Getting Started
 
-g20 provides several module formats and is bundled to support multiple use cases.
+image:getting-started.svg[width=500, height=500]
 
-If you want to include g20 in an existing web page that does not use a module loader, then you should use the bundled `@g20/browser` package, and select the `UMD` format from the distribution folder.
+[source,json]
+._package.json dependencies_
+----
+include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/package.json?cache_bust='{revdatetime}'[lines=3..7]
+----
 
-If you are including g20 in a modern web application that uses module loading, then you should use the required `@g20/core`, `@g20/reactive`, and `@g20/svg` packages. Behind the scenes, the web application development environment is using EcmaScript Modules (`ESM`).
+[cols="1,3"]
+|===
+|Package       |Description
 
-If you are using STEMCstudio, then the developer experience using g20 feels very mush like you are using `ESM``, but in actuality the modules being used are in `System` format.
+|@g20/core     | Renderer Agnostic 2D Graphics Model
+|@g20/reactive | Signals and Effects
+|@g20/svg      | Scalable Vector Graphics (SVG) Renderer
+|===
 
-=== Universal Module Definition (UMD)
 
-The @g20/browser package contains most of the g20 packages bundled into a single file with the UMD format. This file may be loaded as a external script in an HTML file. Once loaded, functions, classes, and constants from the module will be available in the `G20` namespace.  
+[%always]
+<<<
 
 [source,html,linenos]
-----
-include::https://raw.githubusercontent.com/geometryzen/g20mono/main/packages/browser/www/index.html?cache_bust='{revdatetime}'[]
-----
-
-You can explore this application in JSFiddle.
-
-https://jsfiddle.net/f4qka3po/
-
-=== EcmaScript Modules (ESM)
-
-[source,json,linenos]
-----
-include::https://raw.githubusercontent.com/geometryzen/g20vite/main/package.json?cache_bust='{revdatetime}'[]
-----
-
-[source,html,linenos]
-----
-include::https://raw.githubusercontent.com/geometryzen/g20vite/main/index.html?cache_bust='{revdatetime}'[]
-----
-
-[source,typescript,linenos]
-----
-include::https://raw.githubusercontent.com/geometryzen/g20vite/main/src/main.ts?cache_bust='{revdatetime}'[]
-----
-
-[source,typescript,linenos]
-----
-include::https://raw.githubusercontent.com/geometryzen/g20vite/main/src/style.css?cache_bust='{revdatetime}'[]
-----
-
-=== System Modules (System)
-
-[source,json,linenos]
-----
-include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/package.json?cache_bust='{revdatetime}'[]
-----
-
-[source,html,linenos]
+._index.html_
 ----
 include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/index.html?cache_bust='{revdatetime}'[]
 ----
 
+[%always]
+<<<
+
 [source,typescript,linenos]
+._index.ts_
 ----
 include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/index.ts?cache_bust='{revdatetime}'[]
 ----
 
+[%always]
+<<<
+
 [source,css,linenos]
+._style.css_
 ----
 include::https://gist.githubusercontent.com/stemcstudio/6670c7efb04edc14c69cde9b9e95a75b/raw/style.css?cache_bust='{revdatetime}'[]
 ----
+
+[%always]
+<<<
 
 [#g20-book-getting-started]
 .Getting Started

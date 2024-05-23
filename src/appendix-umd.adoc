@@ -1,0 +1,15 @@
+[[appendix-umd]]
+[appendix]
+
+== Universal Module Definition (UMD)
+
+The @g20/browser package contains most of the g20 packages bundled into a single file with the UMD format. This file may be loaded as a external script in an HTML file. Once loaded, functions, classes, and constants from the module will be available in the `G20` namespace.  
+
+[source,html,linenos]
+----
+include::https://raw.githubusercontent.com/geometryzen/g20mono/main/packages/browser/www/index.html?cache_bust='{revdatetime}'[]
+----
+
+You can explore this application in JSFiddle.
+
+https://jsfiddle.net/f4qka3po/

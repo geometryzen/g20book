@@ -1,7 +1,7 @@
 {
     "name": "g20book",
     "private": "true",
-    "version": "1.0.0",
+    "version": "1.0.0-alpha.31",
     "description": "The @g20 Book",
     "main": "index.js",
     "scripts": {
